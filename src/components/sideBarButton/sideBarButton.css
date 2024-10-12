@@ -1,0 +1,18 @@
+.side-bar-button {
+    display: block;
+    padding: 10px 45px 10px 45px;
+    text-align: center;
+    margin: auto;
+    outline: none;
+    border: none;
+    border-radius: 8px;
+    background-color: #2980b9;
+    color: white;
+    margin-bottom: 10px;
+    transition-duration: 100ms;
+}
+
+.side-bar-button:hover {
+    background-color: #294db9;
+    transform: scale(1.05);
+}

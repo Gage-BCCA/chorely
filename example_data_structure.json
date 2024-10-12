@@ -8,6 +8,7 @@
     "image": "path to image",
     "paid": true,
     "allowance_amount": 5,
+    "importance": 3,
     "date_posted": "date",
     "categories": [
         "cleaning",
