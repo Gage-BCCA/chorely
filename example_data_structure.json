@@ -1,0 +1,28 @@
+{
+    "chore": "Sweep the Kitchen",
+    "description": "Sweep the floors in the Kitchen and dining room. Do it good! We have guests",
+    "owner": "Gage",
+    "due_date": "date",
+    "completed": false,
+    "status": "Not Started",
+    "image": "path to image",
+    "paid": true,
+    "allowance_amount": 5,
+    "date_posted": "date",
+    "categories": [
+        "cleaning",
+        "kitchen"
+    ],
+    "comments":[
+        {
+            "author": "Gage",
+            "date_posted": "date",
+            "text": "I just did this yesterday :("
+        },
+        {
+            "author": "Daniel",
+            "date_posted": "date",
+            "text": "Do this for the guests coming over." 
+        }
+    ]
+}
