@@ -17,7 +17,8 @@ export default function SideBar({ handlePopup }){
             <p>Manage Household Chores the Easy Way.</p>
             <SideBarButton 
             text="Create a Chore"
-            handleClick={handleCreateButtonClick}
+            handleClick={ handlePopup }
+            popupType={ "creation" }
             />
             <SideBarButton 
             text="Delete a Chore"
