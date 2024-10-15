@@ -1,0 +1,26 @@
+/* .chore-list-container {
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: center;
+  margin: auto;
+  padding: 0px 70px 0px 70px;
+  width: 80px;
+  background-color: red;
+  word-wrap: break-word;
+  align-items: center;
+  gap: 10px 20px;
+} */
+
+.chore-list-container {
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  flex-direction: row;
+  left: 40%;
+  width: 20vw;
+  margin: 3%;
+}
+
+.chores {
+  background-color: red;
+}
