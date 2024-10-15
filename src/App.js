@@ -3,6 +3,7 @@ import SideBar from "./components/sideBar/SideBar";
 import Popup from "./components/popup/Popup";
 import ContentContainer from "./components/contentContainer/ContentContainer";
 import CreationForm from "./components/creationForm/CreationForm";
+import DetailsPopup from "./components/detailsPopup/DetailsPopup";
 import { useState, useEffect } from "react";
 
 function App() {
@@ -23,10 +24,11 @@ function App() {
   }, []);
 
 
-  function handlePopup(type) {
+  function handlePopup(type, data) {
     // Dynamically set the popup type to be rendered
     // Each popup window will be a separate component
     console.log("Setting popup type")
+    console.log(data);
     switch (type){
       case 'creation':
         setPopup(1);
@@ -46,6 +48,8 @@ function App() {
     switch (type){
       case 1:
         return <CreationForm />
+      case 3:
+        return <DetailsPopup />
       default:
         return null;
     }
@@ -57,7 +61,10 @@ function App() {
         <SideBar handlePopup={handlePopup} />
       </div>
       <div className="content-container">
-        <ContentContainer chores={ chores } />
+        <ContentContainer 
+        chores={ chores } 
+        handlePopup={handlePopup}
+        />
       </div>
     </div>
   ) : (
