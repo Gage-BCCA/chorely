@@ -5,7 +5,7 @@ export default function SideBarButton({ text, handleClick }) {
         <>
         <button 
         className="side-bar-button"
-        onClick={handleClick}
+        onClick={() => handleClick("generic")}
         >
             { text }
         </button>

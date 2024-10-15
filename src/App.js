@@ -1,27 +1,54 @@
 import "./App.css";
 import SideBar from "./components/sideBar/SideBar";
 import Popup from "./components/popup/Popup";
-import ChoreListContainer from "./components/choreListContainer/ChoreListContainer";
+import ContentContainer from "./components/contentContainer/ContentContainer";
+import CreationForm from "./components/creationForm/CreationForm";
 import { useState, useEffect } from "react";
 
 function App() {
-  const [popup, setPopup] = useState(false);
+  const [popup, setPopup] = useState(0);
   const [chores, setChore] = useState([]);
 
   // `https://unit-4-project-app-24d5eea30b23.herokuapp.com/get/all?teamId=2`
   useEffect(() => {
-    fetch(`/chores_test.json`)
+    fetch(`./chores_test.json`)
       .then((response) => response.json())
       .then((data) => {
-        setChore(data);
-        console.log(data);
+        console.log("Network request.")
+        let choreArrayBuffer = chores.slice();
+        choreArrayBuffer.push(data);
+        setChore(choreArrayBuffer);
       })
       .catch((error) => console.error("Error fetching chores: ", error));
   }, []);
 
-  function handlePopup(text) {
-    // This will populate the generic popup component and display it.
-    setPopup(!popup);
+
+  function handlePopup(type) {
+    // Dynamically set the popup type to be rendered
+    // Each popup window will be a separate component
+    console.log("Setting popup type")
+    switch (type){
+      case 'creation':
+        setPopup(1);
+        break;
+      case 'deletion':
+        setPopup(2);
+        break;
+      case 'details':
+        setPopup(3);
+        break;
+    }
+  }
+
+  function renderPopup(type) {
+    console.log("Determining popup type");
+    console.log(type);
+    switch (type){
+      case 1:
+        return <CreationForm />
+      default:
+        return null;
+    }
   }
 
   return !popup ? (
@@ -30,8 +57,7 @@ function App() {
         <SideBar handlePopup={handlePopup} />
       </div>
       <div className="content-container">
-        <h1>This is a test</h1>
-        <ChoreListContainer chores={chores} />
+        <ContentContainer chores={ chores } />
       </div>
     </div>
   ) : (
@@ -40,9 +66,9 @@ function App() {
         <SideBar />
       </div>
       <div className="content-container opaque">
-        <h1>This is a test</h1>
+        <ContentContainer chores={ chores } />
       </div>
-      <Popup handlePopup={handlePopup} />
+      { renderPopup(popup) }
     </div>
   );
 }

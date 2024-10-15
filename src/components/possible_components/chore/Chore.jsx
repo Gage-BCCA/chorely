@@ -1,0 +1,5 @@
+/*
+
+This will be the card object that the chores are stored on
+
+*/
