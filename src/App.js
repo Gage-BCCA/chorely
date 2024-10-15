@@ -37,7 +37,7 @@ function App() {
         setPopup(2);
         break;
       case 'details':
-        setPopup(3);
+        setPopup(3, data);
         break;
     }
   }
@@ -49,7 +49,7 @@ function App() {
       case 1:
         return <CreationForm />
       case 3:
-        return <DetailsPopup />
+        return <DetailsPopup chore={type.data} />
       default:
         return null;
     }
