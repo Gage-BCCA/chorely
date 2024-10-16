@@ -1,17 +1,30 @@
 import React from "react";
+import { useState } from "react";
 import Chores from "../chores/Chores";
 import "./choreListContainer.css";
 
 const ChoreListContainer = ({ chores, handlePopup }) => {
-  console.log(chores);
+  const [filter, setFilter] = useState("");
+  function filterChores (text) {
+    setFilter(text);
+  }
+
   return (
-    <div className="chore-list-container">
+    <div>
+      <input 
+      type='text' 
+      placeholder='Search'
+      onInput={ (e) => filterChores(e.target.value)}
+      ></input>
+      <div className="chore-list-container">
       {chores.length > 0 ? (
-        chores.map((chore, index) => <Chores key={index} chore={chore["data_json"]} handlePopup={handlePopup} />)
+        chores.filter(chore => chore.chore.includes(filter).map((chore, index) => <Chores key={index} chore={chore["data_json"]} handlePopup={handlePopup} />))
       ) : (
         <p>No chores provided</p>
       )}
     </div>
+    </div>
+
   );
 };
 

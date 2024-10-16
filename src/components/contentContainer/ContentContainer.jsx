@@ -13,7 +13,6 @@ export default function ContentContainer({ chores, handlePopup }) {
     return(
         <>
         <h1>Chores</h1>
-        <input type='text' placeholder='Search'></input>
         <ChoreListContainer chores={ chores } handlePopup={handlePopup} />
         </>
     )

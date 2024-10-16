@@ -10,7 +10,8 @@ import { useState, useEffect } from "react";
 function App() {
   const [popup, setPopup] = useState(0);
   const [chores, setChore] = useState([]);
-  const [currentChore, setCurrentChore] = useState({})
+  const [currentChore, setCurrentChore] = useState({});
+  const [filter, setFilter] = useState("");
 
   // `https://unit-4-project-app-24d5eea30b23.herokuapp.com/get/all?teamId=2`
   useEffect(() => {
