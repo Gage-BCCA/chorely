@@ -33,6 +33,9 @@ function App() {
     console.log("Setting popup type")
     console.log(data);
     switch (type){
+      case "close":
+        setPopup(false);
+        break;
       case 'creation':
         setPopup(1);
         break;
@@ -55,7 +58,7 @@ function App() {
       case 2:
         return <DeletionForm />
       case 3:
-        return <DetailsPopup chore={currentChore} />
+        return <DetailsPopup chore={currentChore} handlePopup={handlePopup}/>
       default:
         return null;
     }
