@@ -1,0 +1,27 @@
+/* Taken from creationForm.css */
+
+.popup {
+    position: absolute;
+    background-color: #ddd;
+    height: 80vh;
+    width: 50vw;
+    top: 10%;
+    left: 25%;
+}
+.popup-form {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #3498DB;
+    padding: 20px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    border-radius: 8px;
+    z-index: 1000;
+    text-align: auto;
+  }
+  
+  .App {
+    text-align: center;
+    margin-top: 100px;
+  }

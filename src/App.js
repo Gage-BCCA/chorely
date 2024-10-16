@@ -6,6 +6,7 @@ import CreationForm from "./components/creationForm/CreationForm";
 import DeletionForm from "./components/deletionForm/DeletionForm";
 import DetailsPopup from "./components/detailsPopup/DetailsPopup";
 import { useState, useEffect } from "react";
+import ChoreEditForm from "./components/choreEditForm/ChoreEditForm";
 
 function App() {
   const [popup, setPopup] = useState(0);

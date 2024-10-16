@@ -6,3 +6,16 @@
     top: 10%;
     left: 25%;
 }
+
+.popup h4 {
+    margin-top: 10px;
+    margin-bottom: 0;
+}
+
+.details-header {
+    margin: 0;
+}
+
+.chore-details p {
+    margin-top: 0px;
+}
