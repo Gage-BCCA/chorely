@@ -3,22 +3,26 @@ import SideBar from "./components/sideBar/SideBar";
 import Popup from "./components/popup/Popup";
 import ContentContainer from "./components/contentContainer/ContentContainer";
 import CreationForm from "./components/creationForm/CreationForm";
+import DeletionForm from "./components/deletionForm/DeletionForm";
 import DetailsPopup from "./components/detailsPopup/DetailsPopup";
 import { useState, useEffect } from "react";
 
 function App() {
   const [popup, setPopup] = useState(0);
   const [chores, setChore] = useState([]);
+  const [currentChore, setCurrentChore] = useState({});
+  const [filter, setFilter] = useState("");
 
   // `https://unit-4-project-app-24d5eea30b23.herokuapp.com/get/all?teamId=2`
   useEffect(() => {
-    fetch(`./chores_test.json`)
+    fetch(`https://unit-4-project-app-24d5eea30b23.herokuapp.com/get/all?teamId=2`)
       .then((response) => response.json())
       .then((data) => {
-        console.log("Network request.")
-        let choreArrayBuffer = chores.slice();
-        choreArrayBuffer.push(data);
-        setChore(choreArrayBuffer);
+        let buffer = []
+        for (let datum of data["response"]){
+          buffer.push(datum);
+        }
+        setChore(buffer);
       })
       .catch((error) => console.error("Error fetching chores: ", error));
   }, []);
@@ -30,6 +34,9 @@ function App() {
     console.log("Setting popup type")
     console.log(data);
     switch (type){
+      case "close":
+        setPopup(false);
+        break;
       case 'creation':
         setPopup(1);
         break;
@@ -38,6 +45,7 @@ function App() {
         break;
       case 'details':
         setPopup(3);
+        setCurrentChore(data)
         break;
     }
   }
@@ -48,11 +56,26 @@ function App() {
     switch (type){
       case 1:
         return <CreationForm />
+      case 2:
+        return <DeletionForm />
       case 3:
-        return <DetailsPopup />
+        return <DetailsPopup chore={currentChore} handlePopup={handlePopup}/>
       default:
         return null;
     }
+  }
+
+  function createNewChore(chore){
+    fetch("https://unit-4-project-app-24d5eea30b23.herokuapp.com/post/data", {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        "team": 2,
+        "body": chore
+      })
+    })
   }
 
   return !popup ? (
