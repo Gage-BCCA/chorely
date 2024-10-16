@@ -3,6 +3,7 @@ import './detailsPopup.css'
 
 export default function DetailsPopup ({ chore }) {
     return (
+        <div className='popup'>
         <div className='chore-details'>
             <header>{chore.chore}</header>
             <h1>Owner / Posted: Date Posted</h1>
@@ -20,6 +21,7 @@ export default function DetailsPopup ({ chore }) {
                 </div>
             <footer>Categories</footer>
             {/* Need to make close window button */}
+        </div>
         </div>
     )
 }

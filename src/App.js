@@ -3,12 +3,14 @@ import SideBar from "./components/sideBar/SideBar";
 import Popup from "./components/popup/Popup";
 import ContentContainer from "./components/contentContainer/ContentContainer";
 import CreationForm from "./components/creationForm/CreationForm";
+import DeletionForm from "./components/deletionForm/DeletionForm";
 import DetailsPopup from "./components/detailsPopup/DetailsPopup";
 import { useState, useEffect } from "react";
 
 function App() {
   const [popup, setPopup] = useState(0);
   const [chores, setChore] = useState([]);
+  const [currentChore, setCurrentChore] = useState({})
 
   // `https://unit-4-project-app-24d5eea30b23.herokuapp.com/get/all?teamId=2`
   useEffect(() => {
@@ -38,7 +40,8 @@ function App() {
         setPopup(2);
         break;
       case 'details':
-        setPopup(3, data);
+        setPopup(3);
+        setCurrentChore(data)
         break;
     }
   }
@@ -49,11 +52,26 @@ function App() {
     switch (type){
       case 1:
         return <CreationForm />
+      case 2:
+        return <DeletionForm />
       case 3:
-        return <DetailsPopup chore={type.data} />
+        return <DetailsPopup chore={currentChore} />
       default:
         return null;
     }
+  }
+
+  function createNewChore(chore){
+    fetch("https://unit-4-project-app-24d5eea30b23.herokuapp.com/post/data", {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        "team": 2,
+        "body": chore
+      })
+    })
   }
 
   return !popup ? (

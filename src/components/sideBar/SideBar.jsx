@@ -22,7 +22,8 @@ export default function SideBar({ handlePopup }){
             />
             <SideBarButton 
             text="Delete a Chore"
-            handleClick={handleDeleteButtonClick}
+            handleClick={ handlePopup }
+            popupType={ "deletion" }
             />
             <SideBarButton 
             text="Trigger Popup"
