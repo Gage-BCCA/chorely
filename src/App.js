@@ -12,13 +12,14 @@ function App() {
 
   // `https://unit-4-project-app-24d5eea30b23.herokuapp.com/get/all?teamId=2`
   useEffect(() => {
-    fetch(`./chores_test.json`)
+    fetch(`https://unit-4-project-app-24d5eea30b23.herokuapp.com/get/all?teamId=2`)
       .then((response) => response.json())
       .then((data) => {
-        console.log("Network request.")
-        let choreArrayBuffer = chores.slice();
-        choreArrayBuffer.push(data);
-        setChore(choreArrayBuffer);
+        let buffer = []
+        for (let datum of data["response"]){
+          buffer.push(datum);
+        }
+        setChore(buffer);
       })
       .catch((error) => console.error("Error fetching chores: ", error));
   }, []);
