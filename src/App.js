@@ -5,8 +5,9 @@ import ContentContainer from "./components/contentContainer/ContentContainer";
 import CreationForm from "./components/creationForm/CreationForm";
 import DeletionForm from "./components/deletionForm/DeletionForm";
 import DetailsPopup from "./components/detailsPopup/DetailsPopup";
-import { useState, useEffect } from "react";
 import ChoreEditForm from "./components/choreEditForm/ChoreEditForm";
+import { useState, useEffect } from "react";
+
 
 function App() {
   const [popup, setPopup] = useState(0);
@@ -48,6 +49,9 @@ function App() {
         setPopup(3);
         setCurrentChore(data)
         break;
+      case 'update':
+        setPopup(4);
+        break;
     }
   }
 
@@ -60,7 +64,9 @@ function App() {
       case 2:
         return <DeletionForm />
       case 3:
-        return <DetailsPopup chore={currentChore} handlePopup={handlePopup}/>
+        return <DetailsPopup chore={currentChore} handlePopup={handlePopup} />
+      case 4:
+        return <ChoreEditForm chore={currentChore} handlePopup={handlePopup} />
       default:
         return null;
     }

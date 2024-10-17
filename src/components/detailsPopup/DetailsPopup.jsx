@@ -1,4 +1,5 @@
-import './detailsPopup.css'
+import './detailsPopup.css';
+import '../choreEditForm/ChoreEditForm'
 
 
 export default function DetailsPopup ({ chore, handlePopup }) {
@@ -29,7 +30,8 @@ export default function DetailsPopup ({ chore, handlePopup }) {
                 </div>
                     <h4>Categories:</h4>
                         <p>{chore.category}</p>
-                <button onClick={ () => handlePopup("close")}>Edit Details</button><br></br>
+                <button onClick={ () => handlePopup("update")}>Edit Details</button>
+                <br></br>
                 <button onClick={ () => handlePopup("close")}>Close</button>
             </div>
         </div>
