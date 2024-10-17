@@ -16,15 +16,19 @@ const ChoreListContainer = ({ chores, handlePopup }) => {
       placeholder='Search'
       onInput={ (e) => filterChores(e.target.value)}
       ></input>
+      <br></br>
       <div className="chore-list-container">
       {chores.length > 0 ? (
-        chores.filter(chore => chore.data_json.chore.includes(filter)).map((chore, index) => <Chores key={index} chore={chore["data_json"]} handlePopup={handlePopup} />)
-      ) : (
-        <p>No chores provided</p>
-      )}
+        chores.filter(chore => chore.data_json.chore.includes(filter))
+          .map((chore, index) => (
+            <div className='chore-items' key={index}>
+              <Chores chore={chore["data_json"]} handlePopup={handlePopup} />
+            </div>
+          ))) : (
+              <p>No chores provided</p>
+          )}
+      </div>
     </div>
-    </div>
-
   );
 };
 

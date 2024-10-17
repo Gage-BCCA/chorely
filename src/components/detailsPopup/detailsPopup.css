@@ -7,6 +7,12 @@
     left: 25%;
 }
 
+.chore-details {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
 .popup h4 {
     margin-top: 10px;
     margin-bottom: 0;
@@ -18,4 +24,10 @@
 
 .chore-details p {
     margin-top: 0px;
+}
+
+.chore-details button {
+    width: 100%;
+    margin: 5px;
+    padding: 2px;
 }

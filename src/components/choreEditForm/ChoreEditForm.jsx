@@ -1,89 +1,73 @@
 import './choreEditForm.css';
-import { useState } from "react";
-
-/* 
-
-My thoughts (Double check with Gage):
-
-Possibility of updating individual details without resubmitting all previous details?
-
-1 - Render Form from the update button in DetailsPopup (copy creationForm? )
-2 - Fill fields with existing chore data (populateForm) (I think it has to be a state?)??????????????
-3 - Take user updates and previous chore data and merge changes
-4 - form submission & post updates to database (handleUpdate - useEffect)
-
-If all else fails, just delete previous chore and make a new one.
-
-*/
 
 // Styling
 // Input Validation!!
-
+// Where are comments being input?
 
 export default function ChoreEditForm({ chore, handlePopup, handleUpdate }) {
-    // 1 - Storing details from DetailsPopup (choreDetails)
-    // 1.1 - Will need to take stored details and fill the new form (populateForm)
-
-    /* 
-    Gage - Do I actually need this? I may have been overcomplicating it in my head. I think just calling the chore info is the simplified answer.
-    
-    const [choreDetails, populateForm] = useState({
-        chore: chore.chore,
-        chore_owner: chore.owner,
-        date_posted: chore.date_posted,
-        importance: chore.importance,
-        due_date: chore.due_date,
-        status: chore.status,
-        description: chore.description,
-        allowance: chore.allowance_amount,
-        paid: chore.paid,
-        // include comments? Not sure if this is where comments will be created
-    })
-    */
-
     return (
         <div className='popup'>
             <div className='edit-chore-details'>
-                <h1>Editing: {chore.chore}</h1>
+                <h1 className='edit-details-header'>Editing: {chore.chore}</h1>
                 <form>
                     <label>
-                        Chore name: {chore.chore} | <input type="text" newChore="chore" />
-                        </label><br></br>
+                        <span>Chore name:</span>
+                        <input type="text" newChore="chore" defaultValue={chore.chore} />
+                    </label>
                     <label>
-                        Owner: {chore.owner} |  <input type="text" newOwner="owner" />
-                        </label><br></br>
+                        <span>Owner:</span>
+                        <input type="text" newOwner="owner" defaultValue={chore.owner} />
+                    </label>
                     <label>
-                        Date Posted: {chore.date_posted} | <input type="date" newDatePosted="date-posted" />
-                        </label><br></br>
-                    <label for='slider'>
-                        Importance: {chore.importance} |  <input type="text" newImportance="importance" />
-                        </label> <br></br>
+                        <span>Date Posted:</span>
+                        <input type="date" newDatePosted="date-posted" defaultValue={chore.date_posted} />
+                    </label>
                     <label>
-                        Due Date: {chore.due_date} | <input type="date" newDueDate="due-date" />
-                        </label><br></br>
+                        <span>Importance:</span>
+                        <select newImportance="importance" defaultValue={chore.importance}>
+                            <option value='Low'>Low</option>
+                            <option value='Medium'>Medium</option>
+                            <option value='High'>High</option>
+                        </select>
+                    </label>
                     <label>
-                        Status: {chore.status} |  <input type="text" newStatus="status" />
-                        </label><br></br>
+                        <span>Due Date:</span>
+                        <input type="date" newDueDate="due-date" defaultValue={chore.due_date} />
+                    </label>
                     <label>
-                        Description: {chore.description} |  <input type="text" newStatus="status" />
-                        </label><br></br>
+                        <span>Status:</span>
+                        <select newStatus="status" defaultValue={chore.status}>
+                            <option value='Not Started'>Not Started</option>
+                            <option value='In Progress'>In Progress</option>
+                            <option value='Completed'>Completed</option>
+                        </select>
+                    </label>
                     <label>
-                        Allowance Amount: ${chore.allowance_amount} | <input type="text" newAllowanceAmount="allowance-amount" />
-                        </label> <br></br>
+                        <span>Description:</span>
+                        <input type="text" newDescription="description" defaultValue={chore.description} />
+                    </label>
                     <label>
-                        Paid: {chore.paid} | <input type="text" newPaid="paid" />
-                        </label> 
+                        <span>Allowance Amount:</span>
+                        <input type="text" newAllowanceAmount="allowance-amount" defaultValue={chore.allowance_amount} />
+                    </label>
+                    <label>
+                        <span>Paid:</span>
+                        <select newPaid="paid" defaultValue={chore.paid ? 'Yes' : 'No'}>
+                            <option value='No'>No</option>
+                            <option value='Yes'>Yes</option>
+                        </select>
+                    </label>
                 </form>
+                <div className='update-btns'>
                     <button type='submit'>Submit Changes</button>
-                    <br></br>
-                    <button onClick={ () => handlePopup("close")}>Cancel</button>
+                    <button onClick={() => handlePopup("close")}>Cancel</button>
+                </div>
             </div>
         </div>
     )
 
     function handleUpdate () {
-        // Take the new state of choreDetails and PUT to database
-        // Only want changed values to be put
+        // PUT updated values into database - merge with previous
     }
 
 
