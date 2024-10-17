@@ -1,28 +1,42 @@
-import './detailsPopup.css'
+import './detailsPopup.css';
+import '../choreEditForm/ChoreEditForm'
 
 
 export default function DetailsPopup ({ chore, handlePopup }) {
+    {/* Handling of ChoreEditForm */}
+    {/* Make importance a colored circle? */}
+
     return (
         <div className='popup'>
             <div className='chore-details'>
-                <h1>{chore.chore}</h1>
-                <h2>{chore.owner} / {chore.date_posted}</h2>
-                <h3>{chore.importance} / Due: {chore.due_date} / Status: {chore.status}</h3>
-                    <h4>Details: </h4>
+                <h1 className='details-header'>{chore.chore}</h1>
+                <h2 className='details-header'>{chore.owner} | Created: {chore.date_posted}</h2>
+                <h3 className='details-header'>{chore.importance} | Due: {chore.due_date} | Status: {chore.status}</h3>
+                    <h4>Details:</h4>
                     <p>{chore.chore}:<br></br>
                         {chore.description}<br></br>
                         Allowance Amount: ${chore.allowance_amount}<br></br>
-                        Paid: {chore.paid}</p> 
+                        Paid: {chore.paid ? 'Yes' : 'No'}</p> 
                 <div className='chore-comments'>
-                    <h4>Comments</h4>
-                        <p>{chore.comments.author}</p>
-                        <p>{chore.comments.date_posted}</p>
-                        <p>{chore.comments.text}</p>
-                    </div>
-                <footer>Categories: <br></br>
-                {chore.category}
-                </footer>
-                <button onClick={ () => handlePopup("close")}>Close</button>
+                    <h4>Comments:</h4>
+                        {chore.comments && chore.comments.length > 0 ? (
+                            chore.comments.map((comment, id) => (
+                                <div key={id}>
+                                    <p>{comment.author} | {comment.date_posted}<br></br>
+                                        {comment.text}
+                                    </p>
+                                </div>
+                                ))) : ( <p>No comments available</p> )}
+                </div>
+                <div className='chore-categories'>
+                    <h4>Categories:</h4>
+                        <p>{chore.category}</p>
+                </div>
+                <div className='details-btns'>
+                    <button onClick={ () => handlePopup("update")}>Edit Details</button>
+                    <br></br>
+                    <button onClick={ () => handlePopup("close")}>Close</button>
+                </div>
             </div>
         </div>
     )

@@ -1,0 +1,49 @@
+.popup {
+  position: absolute;
+  background-color: #ddd;
+  height: 80vh;
+  width: 50vw;
+  top: 10%;
+  left: 25%;
+}
+
+.edit-details-header {
+  align-self: center;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  width: 90%; 
+}
+
+form label {
+  display: flex; 
+  margin-bottom: 10px;
+  width: 100%; 
+}
+
+form label span {
+  flex: 1;
+  text-align: left;
+  margin-left: 50px;
+}
+
+form input[type="text"] {
+  flex: 3; 
+  width: 100%; 
+}
+
+form input[type="date"] {
+  width: 14%;
+}
+ /* Need to make these look better */
+form select {
+  width: 15%;
+}
+
+.update-btns {
+  width: 100%;
+  margin: 5px;
+  padding: 2px;
+}
