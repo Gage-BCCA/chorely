@@ -6,7 +6,7 @@ import "./choreListContainer.css";
 const ChoreListContainer = ({ chores, handlePopup }) => {
   const [filter, setFilter] = useState("");
   function filterChores (text) {
-    setFilter(text);
+    setFilter(text.toLowerCase());
   }
 
   return (
@@ -18,7 +18,7 @@ const ChoreListContainer = ({ chores, handlePopup }) => {
       ></input>
       <div className="chore-list-container">
       {chores.length > 0 ? (
-        chores.filter(chore => chore.data_json.chore.includes(filter)).map((chore, index) => <Chores key={index} chore={chore["data_json"]} handlePopup={handlePopup} />)
+        chores.filter(chore => chore.data_json.chore.toLowerCase().includes(filter)).map((chore, index) => <Chores key={index} chore={chore["data_json"]} handlePopup={handlePopup} />)
       ) : (
         <p>No chores provided</p>
       )}

@@ -1,7 +1,16 @@
 .chores {
-    background-color: #ddd;
-    border-radius: 10px;
-    padding: 15px;
+    background-color: #feff9c;
+    border-radius: 5px;
+    padding: 35px;
     margin: 25px 50px 25px 50px;
     flex: 1 1 25%;
+    box-shadow: 7px 7px #fff740;
+    transition-duration: 150ms;
+}
+.chores > button {
+    outline: none;
+    border: none;
+}
+.chores:hover {
+    transform: scale(1.025);
 }
