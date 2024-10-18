@@ -4,11 +4,16 @@ import "./chores.css";
 const Chores = ({ chore, handlePopup }) => {
   return (
     <div className="chores">
-      <button>Delete</button>
       <h2>{chore.chore}</h2>
+      <p>{chore.owner}</p>
       <button
-      onClick={ () => handlePopup("details", chore)}
-      >See more details</button>
+      onClick={ (e) => {
+        handlePopup("details", chore)
+        console.log(chore)
+      
+      }
+    }
+      >See More</button>
     </div>
   );
 };

@@ -11,10 +11,27 @@
   gap: 10px 20px;
 } */
 
-.chore-list-container {
+/* .chore-list-container {
   align-items: center;
   justify-content: center;
   display: flex;
   flex-direction: row;
   margin: auto;
+} */
+
+
+.chore-list-container {
+  display: grid;
+  width: fit-content;
+  grid-template-columns: repeat(3, minmax(auto, 1fr)); 
+  gap: 10px; 
+  justify-items: center;
+}
+
+.chore-items {
+  align-self: stretch;
+  width: stretch;
+  height: fit-content;
+  overflow-wrap: break-word;
+  /* background-color: rgb(198, 245, 229); (Viewing size of items) */
 }

@@ -10,16 +10,68 @@
     position: fixed;
     top: 50%;
     left: 50%;
+    width: 75%;
+    height: 85%;
+    overflow-y: hidden;
     transform: translate(-50%, -50%);
     background-color: #3498DB;
-    padding: 20px;
+    padding: 50px;
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
     border-radius: 8px;
     z-index: 1000;
-    text-align: auto;
   }
-  
-  .App {
+.popup-form > form {
+  margin: auto;
+}
+   #submit {
+  width: 25%;
+  background-color: #ecf0f1;
+  border-radius: 8px;
+  text-align: center;
+  margin: auto;
+  border: none;
+  padding: 15px;
+  transition-duration: 150ms;
+}
+
+#submit:hover {
+  transform: scale(1.05);
+}
+  .form-container {
+    flex: 1 1 50%;
+    padding: 25px;
     text-align: center;
-    margin-top: 100px;
+    margin: auto;
+  }
+
+  .form-container > label {
+    align-content: center;
+    text-align: center;
+    display: block;
+    margin-top: 15px;
+  }
+
+  .form-container > input {
+    padding: 5px;
+    border-radius: 8px;
+    border: none;
+    
+  }
+
+  .form-container > input:focus{
+    background-color: ivory;
+    border: none;
+  }
+  .form {
+    display: flex;
+  }
+
+  .close-button {
+    transform: scale(.9);
+    text-align: right;
+    margin-left: 90%;
+    background-color: #e74c3c;
+    border: none;
+    border-radius: 8px;
+
   }

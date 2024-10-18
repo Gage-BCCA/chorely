@@ -5,7 +5,9 @@ import ContentContainer from "./components/contentContainer/ContentContainer";
 import CreationForm from "./components/creationForm/CreationForm";
 import DeletionForm from "./components/deletionForm/DeletionForm";
 import DetailsPopup from "./components/detailsPopup/DetailsPopup";
+import ChoreEditForm from "./components/choreEditForm/ChoreEditForm";
 import { useState, useEffect } from "react";
+
 
 function App() {
   const [popup, setPopup] = useState(0);
@@ -31,8 +33,6 @@ function App() {
   function handlePopup(type, data) {
     // Dynamically set the popup type to be rendered
     // Each popup window will be a separate component
-    console.log("Setting popup type")
-    console.log(data);
     switch (type){
       case "close":
         setPopup(false);
@@ -47,6 +47,9 @@ function App() {
         setPopup(3);
         setCurrentChore(data)
         break;
+      case 'update':
+        setPopup(4);
+        break;
     }
   }
 
@@ -55,11 +58,13 @@ function App() {
     console.log(type);
     switch (type){
       case 1:
-        return <CreationForm />
+        return <CreationForm handlePopup={handlePopup} />
       case 2:
         return <DeletionForm />
       case 3:
-        return <DetailsPopup chore={currentChore} handlePopup={handlePopup}/>
+        return <DetailsPopup chore={currentChore} handlePopup={handlePopup} />
+      case 4:
+        return <ChoreEditForm chore={currentChore} handlePopup={handlePopup} />
       default:
         return null;
     }

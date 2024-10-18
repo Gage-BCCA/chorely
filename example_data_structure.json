@@ -10,10 +10,7 @@
     "allowance_amount": 5,
     "importance": 3,
     "date_posted": "date",
-    "categories": [
-        "cleaning",
-        "kitchen"
-    ],
+    "category": "Kitchen"
     "comments":[
         {
             "author": "Gage",
