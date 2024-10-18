@@ -3,11 +3,7 @@ import React, { useState } from "react";
 
 export default function DeletionForm () {
     return (
-        <div className="popup">
-            <h1>Hello you are removing an Chore!</h1>
-            <button onClick={DeletionForm}>
-        {useState ? "Close Form" : "Open Form"}
-      </button>
+        <div>
         {useState && (
         <div className="popupp-form">
             <form>
