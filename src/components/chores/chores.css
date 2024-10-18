@@ -6,6 +6,8 @@
     flex: 1 1 25%;
     box-shadow: 7px 7px #fff740;
     transition-duration: 150ms;
+    height: 250px;
+    width: 250px;
 }
 
 .chores > p {
@@ -33,4 +35,8 @@
 
 .chores:hover > h2 {
     transform: scale(1.1);
+}
+
+.chores-small-title > h2 {
+    font-size: 1rem;
 }

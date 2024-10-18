@@ -13,7 +13,7 @@ function App() {
   const [popup, setPopup] = useState(0);
   const [chores, setChore] = useState([]);
   const [currentChore, setCurrentChore] = useState({});
-  const [filter, setFilter] = useState("");
+  const [trigger, setTrigger] = useState(false)
 
   // `https://unit-4-project-app-24d5eea30b23.herokuapp.com/get/all?teamId=2`
   useEffect(() => {
@@ -25,9 +25,10 @@ function App() {
           buffer.push(datum);
         }
         setChore(buffer);
+        setTrigger(false);
       })
       .catch((error) => console.error("Error fetching chores: ", error));
-  }, []);
+  }, [trigger]);
 
 
   function handlePopup(type, data) {
@@ -36,6 +37,7 @@ function App() {
     switch (type){
       case "close":
         setPopup(false);
+        setTrigger(true);
         break;
       case 'creation':
         setPopup(1);
@@ -58,7 +60,7 @@ function App() {
     console.log(type);
     switch (type){
       case 1:
-        return <CreationForm handlePopup={handlePopup} />
+        return <CreationForm handlePopup={handlePopup} createNewChore={createNewChore} />
       case 2:
         return <DeletionForm />
       case 3:
