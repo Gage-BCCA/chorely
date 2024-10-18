@@ -19,8 +19,8 @@ const ChoreListContainer = ({ chores, handlePopup }) => {
       <br></br>
       <div className="chore-list-container">
       {chores.length > 0 ? (
-        chores.filter(chore => chore.data_json.chore.toLowerCase().includes(filter))
-          .map((chore, index) => {
+        //.filter(chore => chore.data_json.chore.toLowerCase().includes(filter))
+        chores.map((chore) => {
             chore["data_json"]["id"] = chore["id"];
             return (
             <div className={'chore-items'} key={chore['id']}>

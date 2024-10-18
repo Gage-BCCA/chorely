@@ -1,7 +1,29 @@
 import "./creationForm.css";
 import React, { useState } from "react";
 
-export default function CreationForm({ handlePopup }) {
+export default function CreationForm({ handlePopup, createNewChore }) {
+
+  function handleSubmit(e){
+    e.preventDefault();
+    let body = {
+      "owner": e.target.name.value,
+      "chore": e.target.chore.value,
+      "description": e.target.description.value,
+      "due_date": e.target.dueDate.value,
+      "completed": false,
+      "status": e.target.status.value,
+      "paid": parseInt(e.target.paid.value) ? true : false,
+      "allowance_amount": e.target.paid.value,
+      "important": e.target.importance.value,
+      "date_posted": new Date(),
+      "category": e.target.category.value,
+      "comments": []
+    }
+
+    createNewChore(body);
+    handlePopup("close");
+    
+  }
   return (
     <div>
       {/* Conditionally render the form */}
@@ -11,7 +33,7 @@ export default function CreationForm({ handlePopup }) {
           className="close-button"
           onClick={() => handlePopup("close")}
           >Close</button>
-          <form>
+          <form onSubmit={(e) => handleSubmit(e)}>
           <h1>Chore Creation Form</h1>
             <div className="form">
             <div className="form-container">
@@ -27,14 +49,14 @@ export default function CreationForm({ handlePopup }) {
             </div>
             <div className="form-container">
             <label for="due-date">Due Date</label>
-              <input type="date" name="due-date" />
+              <input type="date" name="dueDate" />
               <label for="paid">Amount Paid</label>
               <input type="number" name="paid" />
-              <label for="slider">Importance value</label>
+              <label for="importance">Importance value</label>
               <input
                 type="range"
                 id="slider"
-                name="slider"
+                name="importance"
                 min="1"
                 max="10"
                 value="5"
@@ -48,8 +70,8 @@ export default function CreationForm({ handlePopup }) {
               </select>
               <label for="status">Chore Status</label>
               <select name="status">
-                <option value="">Yes</option>
-                <option value="">No</option>
+                <option value="Yes">Yes</option>
+                <option value="Yes">No</option>
               </select>
             </div>
             </div>
