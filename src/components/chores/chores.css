@@ -7,10 +7,30 @@
     box-shadow: 7px 7px #fff740;
     transition-duration: 150ms;
 }
+
+.chores > p {
+    padding: 10px;
+    font-size: 1.3rem;
+    margin-top: 0;
+}
 .chores > button {
-    outline: none;
+    border-radius: 8px;
     border: none;
+    background-color: #ffdf40;
+    padding: 10px;
+    transition-duration: 150ms;
+}
+.chores > button:hover {
+    background-color: #ffea9c;
+}
+.chores > h2 {
+    transition-duration: 350ms;
+    margin-bottom: 0;
 }
 .chores:hover {
     transform: scale(1.025);
+}
+
+.chores:hover > h2 {
+    transform: scale(1.1);
 }

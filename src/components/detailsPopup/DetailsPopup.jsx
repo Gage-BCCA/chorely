@@ -33,7 +33,7 @@ export default function DetailsPopup ({ chore, handlePopup }) {
                         <p>{chore.category}</p>
                 </div>
                 <div className='details-btns'>
-                    <button onClick={ () => handlePopup("update")}>Edit Details</button>
+                    <button onClick={ () => handlePopup("update", chore)}>Edit Details</button>
                     <br></br>
                     <button onClick={ () => handlePopup("close")}>Close</button>
                 </div>

@@ -1,83 +1,59 @@
-import './creationForm.css'
+import "./creationForm.css";
 import React, { useState } from "react";
 
-export default function CreationForm() {
-    return (
-        <div className='popup'>
-            <h1>Creation Form</h1>
-      <button onClick={CreationForm}>
-        {useState ? "Close Form" : "Open Form"}
-      </button>
-
+export default function CreationForm({ handlePopup }) {
+  return (
+    <div>
       {/* Conditionally render the form */}
       {useState && (
         <div className="popup-form">
+          <button 
+          className="close-button"
+          onClick={() => handlePopup("close")}
+          >Close</button>
           <form>
-            <h3>Enter details below!</h3>
-            <label>
-              Name:
+          <h1>Chore Creation Form</h1>
+            <div className="form">
+            <div className="form-container">
+              <label for="name">Name</label>
               <input type="text" name="name" />
-            </label>
-            <br />
-            <label>
-              Chore:
+              <label for="chore">Chore</label>
               <input type="text" name="chore" />
-            </label>
-            <br />
-            <label>
-              Description:
+              <label for="description">Description</label>
               <input type="text" name="description" />
-            </label>
-            <br />
-            <label>
-              Owner:
+              <label for="owner">Owner</label>
               <input type="text" name="owner" />
-            </label>
-            <br />
-            <label>
-              Due Date:
-              <input type="text" name="due-date" />
-            </label>
-            <br />
-            <label>
-              Image:
-              <input type="text" name="image" />
-            </label>
-            <br />
-            <label>
-              Paid:
-              <input type="text" name="paid" />
-            </label>
-            <br />
-            <label>
-              <label for="slider">Importance value:</label>
-                <input type="range" id="slider" name="slider" min="1" max="10" value="5" step="1" />
+              
+            </div>
+            <div className="form-container">
+            <label for="due-date">Due Date</label>
+              <input type="date" name="due-date" />
+              <label for="paid">Amount Paid</label>
+              <input type="number" name="paid" />
+              <label for="slider">Importance value</label>
+              <input
+                type="range"
+                id="slider"
+                name="slider"
+                min="1"
+                max="10"
+                value="5"
+                step="1"
+              />
 
-            </label>
-            <br />
-           
-            <label>
-                Category:
-                <select>
-                    <option value= ''>Outdoor</option>
-                    <option value= ''>Indoor</option>
-                </select>
-                
-            </label>
-            <br />
-            <label>
-                Status:
-                <select>
-                    <option value=''>Yes</option>
-                    <option value=''>No</option>
-                </select>
-           
-            </label>
-            <br />
-
-            <button type="submit">Submit</button>
-    
-
+              <label for="category">Category</label>
+              <select name="category">
+                <option value="outdoor">Outdoor</option>
+                <option value="indoor">Indoor</option>
+              </select>
+              <label for="status">Chore Status</label>
+              <select name="status">
+                <option value="">Yes</option>
+                <option value="">No</option>
+              </select>
+            </div>
+            </div>
+            <button type="submit" id="submit">Submit</button>
           </form>
         </div>
       )}

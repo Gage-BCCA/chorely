@@ -19,12 +19,15 @@ const ChoreListContainer = ({ chores, handlePopup }) => {
       <br></br>
       <div className="chore-list-container">
       {chores.length > 0 ? (
-        chores.filter(chore => chore.data_json.chore.includes(filter))
-          .map((chore, index) => (
-            <div className='chore-items' key={index}>
+        chores.filter(chore => chore.data_json.chore.toLowerCase().includes(filter))
+          .map((chore, index) => {
+            chore["data_json"]["id"] = chore["id"];
+            return (
+            <div className={'chore-items'} key={chore['id']}>
               <Chores chore={chore["data_json"]} handlePopup={handlePopup} />
             </div>
-          ))) : (
+          )}
+        )) : (
               <p>No chores provided</p>
           )}
       </div>

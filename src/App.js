@@ -33,8 +33,6 @@ function App() {
   function handlePopup(type, data) {
     // Dynamically set the popup type to be rendered
     // Each popup window will be a separate component
-    console.log("Setting popup type")
-    console.log(data);
     switch (type){
       case "close":
         setPopup(false);
@@ -60,7 +58,7 @@ function App() {
     console.log(type);
     switch (type){
       case 1:
-        return <CreationForm />
+        return <CreationForm handlePopup={handlePopup} />
       case 2:
         return <DeletionForm />
       case 3:
