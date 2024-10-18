@@ -3,7 +3,8 @@ import "./chores.css";
 
 const Chores = ({ chore, handlePopup }) => {
   return (
-    <div className="chores">
+    <div className={ (chore.chore.length > 40) ? 'chores chores-small-title' : 'chores' }>
+
       <h2>{chore.chore}</h2>
       <p>{chore.owner}</p>
       <button

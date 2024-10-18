@@ -5,7 +5,6 @@
     "due_date": "date",
     "completed": false,
     "status": "Not Started",
-    "image": "path to image",
     "paid": true,
     "allowance_amount": 5,
     "importance": 3,

@@ -1,10 +1,12 @@
 .popup {
-    position: absolute;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    width: 75%;
+    height: 85%;
     background-color: #ddd;
     height: 80vh;
     width: 50vw;
-    top: 10%;
-    left: 25%;
 }
 
 .chore-details {

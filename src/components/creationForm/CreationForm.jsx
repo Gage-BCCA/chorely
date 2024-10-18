@@ -22,7 +22,7 @@ export default function CreationForm({ handlePopup, createNewChore }) {
 
     createNewChore(body);
     handlePopup("close");
-    
+
   }
   return (
     <div>
@@ -37,8 +37,6 @@ export default function CreationForm({ handlePopup, createNewChore }) {
           <h1>Chore Creation Form</h1>
             <div className="form">
             <div className="form-container">
-              <label for="name">Name</label>
-              <input type="text" name="name" />
               <label for="chore">Chore</label>
               <input type="text" name="chore" />
               <label for="description">Description</label>
