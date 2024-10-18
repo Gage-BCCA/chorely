@@ -68,8 +68,9 @@ export default function CreationForm() {
             <label>
                 Status:
                 <select>
-                    <option value=''>Yes</option>
-                    <option value=''>No</option>
+                    <option value=''>completed</option>
+                    <option value=''>In progress</option>
+                    <option value=''>Not done</option>
                 </select>
            
             </label>
