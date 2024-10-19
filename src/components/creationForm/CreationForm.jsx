@@ -51,18 +51,14 @@ export default function CreationForm({ handlePopup, createNewChore }) {
               <input type="date" name="dueDate" />
               <label for="paid">Amount Paid</label>
               <input type="number" name="paid" />
-              <label for="importance">Importance value</label>
-                <div className="checkbox-group">
-                    <label>
-                    <input type="checkbox" /> Low
+              <label>
+                        <span>Importance:</span>
+                        <select>
+                            <option value='Not Started'>Low</option>
+                            <option value='In Progress'>Medium</option>
+                            <option value='Completed'>High</option>
+                        </select>
                     </label>
-                    <label>
-                    <input type="checkbox" /> Medium
-                    </label>
-                    <label>
-                    <input type="checkbox" /> High
-                    </label>
-                </div>
                             
               
 
