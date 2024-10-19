@@ -73,10 +73,10 @@ export default function ChoreEditForm({ chore, handlePopup }) {
                     </label>
                     <label>
                         <span>Importance:</span>
-                        <select ref={importanceRef} defaultValue={chore.importance} name="importance">
-                            <option value='Low'>Low</option>
-                            <option value='Medium'>Medium</option>
-                            <option value='High'>High</option>
+                        <select ref={statusRef} defaultValue={chore.status} name="status">
+                            <option value='Not Started'>Low</option>
+                            <option value='In Progress'>Medium</option>
+                            <option value='Completed'>High</option>
                         </select>
                     </label>
                     <label>
