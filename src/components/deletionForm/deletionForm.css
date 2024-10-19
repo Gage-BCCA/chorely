@@ -1,12 +1,5 @@
-.popup {
-    position: absolute;
-    background-color: #ddd;
-    height: 80vh;
-    width: 50vw;
-    top: 10%;
-    left: 25%;
-}
-.popupp-form {
+
+/*.popupp-form {
     position: fixed;
     top: 50%;
     left: 50%;
@@ -20,17 +13,83 @@
     border-radius: 8px;
     z-index: 1000;
   }
+
+  .submit1{
+    position: relative;
+    border-radius: 25%;
+    left: 25%;
+    right: 25%;
+
+  }
   
-    #submit {
-        width: 10%;
-        background-color: #ecf0f1;
-        border-radius: 12px;
-        text-align: center;
-        margin: auto;
-        border: none;
-        padding: 15px;
-        transition-duration: 150ms;
-    }
   .App {
     text-align: center;
+  }*/
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  /* Style for the popup form container */
+  .popupp-form {
+    background-color: red; /* Red background */
+    border: 2px solid #ccc;
+    border-radius: 8px;
+    padding: 20px;
+    width: 400px; /* Set a fixed width */
+    position: fixed; /* Make it fixed to the screen */
+    top: 50%; /* Center vertically */
+    left: 50%; /* Center horizontally */
+    transform: translate(-50%, -50%); /* Center it perfectly */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    font-family: Arial, sans-serif;
+  }
+  
+  /* Headline styling */
+  .popupp-form h3 {
+    color: white; /* White text to contrast with red background */
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 1.5rem;
+  }
+  
+  /* Label styling */
+  .popupp-form label {
+    display: block;
+    margin-bottom: 10px;
+    font-weight: bold;
+    color: white; /* White text */
+  }
+  
+  /* Input field styling */
+  .popupp-form input[type="text"],
+  .popupp-form select {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    font-size: 1rem;
+    background-color: #fff;
+    color: #333;
+    margin-bottom: 20px;
+  }
+  
+  /* Submit button styling */
+  .popupp-form button {
+    width: 100%;
+    padding: 10px;
+    background-color: white;
+    color: red; /* Red text to contrast with white button */
+    font-size: 1.1rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  /* Button hover effect */
+  .popupp-form button:hover {
+    background-color: #ccc;
   }
