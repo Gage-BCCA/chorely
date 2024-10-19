@@ -6,6 +6,7 @@
     top: 10%;
     left: 25%;
 }
+
 .popup-form {
     position: fixed;
     top: 50%;
@@ -20,23 +21,25 @@
     border-radius: 8px;
     z-index: 1000;
   }
+
 .popup-form > form {
   margin: auto;
 }
-   #submit {
-  width: 25%;
-  background-color: #ecf0f1;
-  border-radius: 8px;
-  text-align: center;
-  margin: auto;
-  border: none;
-  padding: 15px;
-  transition-duration: 150ms;
-}
 
-#submit:hover {
-  transform: scale(1.05);
-}
+  #submit {
+    width: 25%;
+    background-color: #ecf0f1;
+    border-radius: 8px;
+    text-align: center;
+    margin: auto;
+    border: none;
+    padding: 15px;
+    transition-duration: 150ms;
+  }
+
+  #submit:hover {
+    transform: scale(1.05);
+  }
   .form-container {
     flex: 1 1 50%;
     padding: 25px;
