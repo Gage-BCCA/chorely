@@ -62,7 +62,7 @@ function App() {
       case 1:
         return <CreationForm handlePopup={handlePopup} createNewChore={createNewChore} />
       case 2:
-        return <DeletionForm />
+        return <DeletionForm handlePopup={handlePopup}/>
       case 3:
         return <DetailsPopup chore={currentChore} handlePopup={handlePopup} />
       case 4:
