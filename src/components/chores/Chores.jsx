@@ -15,12 +15,17 @@ const Chores = ({ chore, handlePopup }) => {
       }
     }
       >See More</button>
+<<<<<<< HEAD
+      <button id="mark-complete" onClick={ () => {handlePopup('confirm')}}>&#x2705;</button>
+      <button id="mark-incomplete" onClick={ () => {handlePopup('confirm')}}>&#10060;</button>
+=======
       <button id="mark-complete"><img src="./images/greencheck.png" alt=""/></button>
       <button id="mark-incomplete">&#10060;</button>
       {/* <div className="status-btns">
         <button id="mark-complete">&#x2713;</button>
         <button id="mark-incomplete">&#10060;</button>
       </div> */}
+>>>>>>> 739f5f610c70a9fce968eba6456dbdcbfe55ceb6
     </div>
   );
 };

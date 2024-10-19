@@ -3,8 +3,23 @@ import '../choreEditForm/ChoreEditForm'
 
 
 export default function DetailsPopup ({ chore, handlePopup }) {
-    {/* Handling of ChoreEditForm */}
     {/* Make importance a colored circle? */}
+
+    const handleDelete = async () => {
+        fetch(`https://unit-4-project-app-24d5eea30b23.herokuapp.com/delete/data`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                'id': chore.id,
+                'team': 2,
+            })
+        })
+        .then((response) => {
+            console.log('Update Status: ', response.status)})
+        .catch(err => console.log('rejected: ', err.message))
+    }
 
     return (
         <div className='popup'>
@@ -35,6 +50,8 @@ export default function DetailsPopup ({ chore, handlePopup }) {
                 <div className='details-btns'>
                     <button onClick={ () => handlePopup("update", chore)}>Edit Details</button>
                     <br></br>
+                    <button onClick={ () => handleDelete(chore.id)}>Delete Chore</button>
+                    <br></br> {/* Delete functionality */}
                     <button onClick={ () => handlePopup("close")}>Close</button>
                 </div>
             </div>
