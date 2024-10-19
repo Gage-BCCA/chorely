@@ -15,6 +15,12 @@ const Chores = ({ chore, handlePopup }) => {
       }
     }
       >See More</button>
+      <button id="mark-complete">&#x2705;</button>
+      <button id="mark-incomplete">&#10060;</button>
+      {/* <div className="status-btns">
+        <button id="mark-complete">&#x2705;</button>
+        <button id="mark-incomplete">&#10060;</button>
+      </div> */}
     </div>
   );
 };

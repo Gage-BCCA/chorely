@@ -1,10 +1,11 @@
 .chores {
+    position: relative;
     background-color: #feff9c;
     border-radius: 5px;
     padding: 35px;
-    margin: 25px 50px 25px 50px;
-    flex: 1 1 25%;
-    box-shadow: 7px 7px #fff740;
+    margin: 25px 50px;
+    /* flex: 1 1 25%; */
+    box-shadow: 5px 5px #fff740, 10px 10px 10px #000000;
     transition-duration: 150ms;
     height: 250px;
     width: 250px;
@@ -12,6 +13,7 @@
 
 .chores > p {
     padding: 10px;
+    flex: 1 1 25%;
     font-size: 1.3rem;
     margin-top: 0;
 }
@@ -40,3 +42,21 @@
 .chores-small-title > h2 {
     font-size: 1rem;
 }
+
+#mark-complete {
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    display: flex;
+    width: 15%;
+
+  }
+
+  #mark-incomplete {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    display: flex;
+    width: 15%;
+
+  }

@@ -18,7 +18,12 @@
     font-family: "Inspiration", cursive;
     font-weight: 400;;
     font-style: normal;
+    text-shadow: 2px 2px 2px black;
     letter-spacing: 2px;
     margin-bottom: 25px;
     font-size: 5rem;
+}
+
+.side-bar > p {
+    margin-bottom: 20px;
 }
