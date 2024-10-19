@@ -37,12 +37,13 @@ export default function CreationForm({ handlePopup, createNewChore }) {
           <h1>Chore Creation Form</h1>
             <div className="form">
             <div className="form-container">
-              <label for="chore">Chore</label>
+              <label for="chore">Chore Name</label>
               <input type="text" name="chore" />
-              <label for="description">Description</label>
-              <input type="text" name="description" />
               <label for="owner">Owner</label>
               <input type="text" name="owner" />
+              <label for="description">Description</label>
+              <input type="text" name="description" />
+              
               
             </div>
             <div className="form-container">
@@ -51,15 +52,19 @@ export default function CreationForm({ handlePopup, createNewChore }) {
               <label for="paid">Amount Paid</label>
               <input type="number" name="paid" />
               <label for="importance">Importance value</label>
-              <input
-                type="range"
-                id="slider"
-                name="importance"
-                min="1"
-                max="10"
-                value="5"
-                step="1"
-              />
+                <div className="checkbox-group">
+                    <label>
+                    <input type="checkbox" /> Low
+                    </label>
+                    <label>
+                    <input type="checkbox" /> Medium
+                    </label>
+                    <label>
+                    <input type="checkbox" /> High
+                    </label>
+                </div>
+                            
+              
 
               <label for="category">Category</label>
               <select name="category">

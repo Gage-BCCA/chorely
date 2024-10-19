@@ -53,6 +53,7 @@ export default function ChoreEditForm({ chore, handlePopup }) {
         .catch(err => console.log('rejected: ', err.message))
     }
     
+    
     return (
         <div className='popup'>
             <div className='edit-chore-details'>

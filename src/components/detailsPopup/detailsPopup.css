@@ -4,9 +4,12 @@
     left: 50%;
     width: 75%;
     height: 85%;
+    /* margin-top: 25px; */
     background-color: #ddd;
+    border-radius: 10px;
     height: 80vh;
     width: 50vw;
+    padding: 30px; 
 }
 
 .chore-details {

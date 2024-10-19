@@ -1,14 +1,26 @@
 import './deletionForm.css'
-import React, { useState } from "react";
+import React, { useState} from "react";
 
-export default function DeletionForm (chore) {
-    const deleteMethod = {
-        method: 'DELETE', 
-       }
-       fetch(`https://unit-4-project-app-24d5eea30b23.herokuapp.com/delete/data${chore.id}`, deleteMethod) 
-       .then(response => response.json())
-       .then(data => console.log(data)) 
-       .catch(err => console.log(err)) 
+export default function DeletionForm ({chore, handlePopup}) {
+    const handleDelete = async () => {
+        try {
+            const response = await fetch(`https://unit-4-project-app-24d5eea30b23.herokuapp.com/delete/data?teamId=2&recordId=${chore.id}`, {
+                method: 'DELETE'
+            });
+    
+            const result = await response.json(); 
+            console.log('Delete Status: ', response.status);
+            console.log('Delete Response: ', result); 
+    
+            if (response.ok) {
+                handlePopup('close'); 
+            } else {
+                console.error('Delete failed:', result); 
+            }
+        } catch (err) {
+            console.error('Delete Error: ', err.message);
+        }
+    };
     return (
         <div>
         {useState && (
