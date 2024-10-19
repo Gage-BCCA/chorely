@@ -6,6 +6,7 @@ import CreationForm from "./components/creationForm/CreationForm";
 import DeletionForm from "./components/deletionForm/DeletionForm";
 import DetailsPopup from "./components/detailsPopup/DetailsPopup";
 import ChoreEditForm from "./components/choreEditForm/ChoreEditForm";
+import ConfirmPopup from './components/confirmPopup/ConfirmPopup';
 import { useState, useEffect } from "react";
 
 
@@ -52,6 +53,9 @@ function App() {
       case 'update':
         setPopup(4);
         break;
+      case 'confirm':
+        setPopup(5);
+        break;
     }
   }
 
@@ -67,6 +71,8 @@ function App() {
         return <DetailsPopup chore={currentChore} handlePopup={handlePopup} />
       case 4:
         return <ChoreEditForm chore={currentChore} handlePopup={handlePopup} />
+      case 5:
+        return <ConfirmPopup chore={currentChore} handlePopup={handlePopup}/>
       default:
         return null;
     }
