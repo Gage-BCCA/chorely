@@ -51,14 +51,13 @@ export default function CreationForm({ handlePopup, createNewChore }) {
               <input type="date" name="dueDate" />
               <label for="paid">Amount Paid</label>
               <input type="number" name="paid" />
-              <label>
-                        <span>Importance:</span>
+              <label for ='importance'>Importance: </label>
                         <select>
                             <option value='Not Started'>Low</option>
                             <option value='In Progress'>Medium</option>
                             <option value='Completed'>High</option>
                         </select>
-                    </label>
+                  
                             
               
 
