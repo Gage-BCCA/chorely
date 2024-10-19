@@ -1,7 +1,14 @@
 import './deletionForm.css'
 import React, { useState } from "react";
 
-export default function DeletionForm () {
+export default function DeletionForm (chore) {
+    const deleteMethod = {
+        method: 'DELETE', 
+       }
+       fetch(`https://unit-4-project-app-24d5eea30b23.herokuapp.com/delete/data${chore.id}`, deleteMethod) 
+       .then(response => response.json())
+       .then(data => console.log(data)) 
+       .catch(err => console.log(err)) 
     return (
         <div>
         {useState && (
@@ -10,12 +17,12 @@ export default function DeletionForm () {
             <h3>Remove chore below!</h3>
             <label>
              Name:
-              <input type="text" name="name" />
+              <input type="text" name="name" defaultValue={chore.name}/>
              </label>
                 <br />
             <label>
              Chore:
-             <input type="text" name="chore" />
+             <input type="text" name="chore" defaultValue={chore.chore}/>
              </label>
              <br />
              <label>
@@ -26,7 +33,7 @@ export default function DeletionForm () {
                 </select>
             </label>
             <br />
-        <button type="submit">Submit</button>
+        <button type="submit1">Submit</button>
 
 
       </form>

@@ -68,8 +68,9 @@ export default function CreationForm({ handlePopup, createNewChore }) {
               </select>
               <label for="status">Chore Status</label>
               <select name="status">
-                <option value="Yes">Yes</option>
-                <option value="Yes">No</option>
+                <option value="Yes">Completed</option>
+                <option value="Yes">In progress</option>
+                <option value="Yes">Incomplete</option>
               </select>
             </div>
             </div>
