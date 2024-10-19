@@ -1,80 +1,133 @@
 .popup {
     position: absolute;
-    background-color: #ddd;
+    background-color: #f0f0f0; /* Softer background for the popup container */
     height: 80vh;
     width: 50vw;
     top: 10%;
     left: 25%;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.3);
+    z-index: 999;
+    transition: transform 0.3s ease, opacity 0.3s ease;
 }
 
 .popup-form {
     position: fixed;
     top: 50%;
     left: 50%;
-    width: 75%;
-    height: 85%;
-    overflow-y: hidden;
+    width: 60%;
+    height: 70%;
+    overflow-y: auto;
     transform: translate(-50%, -50%);
     background-color: #3498DB;
-    padding: 50px;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
-    border-radius: 8px;
+    padding: 40px;
+    box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.3);
+    border-radius: 12px;
     z-index: 1000;
-  }
-
-.popup-form > form {
-  margin: auto;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+    opacity: 1;
 }
 
-  #submit {
-    width: 25%;
+/* Add smooth scrolling to the form */
+.popup-form > form {
+    margin: auto;
+}
+
+#submit {
+    width: 30%;
     background-color: #ecf0f1;
     border-radius: 8px;
     text-align: center;
-    margin: auto;
+    margin: 20px auto;
     border: none;
     padding: 15px;
-    transition-duration: 150ms;
-  }
+    cursor: pointer;
+    font-weight: bold;
+    transition: transform 0.2s ease, background-color 0.2s ease;
+}
 
-  #submit:hover {
+#submit:hover {
     transform: scale(1.05);
-  }
-  .form-container {
+    background-color: #bdc3c7;
+}
+
+/* Flexbox layout for form */
+.form-container {
     flex: 1 1 50%;
-    padding: 25px;
-    text-align: center;
+    padding: 20px;
+    text-align: left; /* Align text to left for better UX */
     margin: auto;
-  }
+}
 
-  .form-container > label {
-    align-content: center;
-    text-align: center;
+.form-container > label {
     display: block;
+    font-size: 1.1em;
     margin-top: 15px;
-  }
+    margin-bottom: 5px;
+    color: #fff;
+}
 
-  .form-container > input {
-    padding: 5px;
+.form-container > input,
+.form-container > select {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
     border-radius: 8px;
-    border: none;
-    
-  }
+    border: 1px solid #ddd;
+    background-color: #fff;
+    box-shadow: inset 0px 2px 4px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.2s ease, box-shadow 0.2s ease;
+}
 
-  .form-container > input:focus{
-    background-color: ivory;
-    border: none;
-  }
-  .form {
+.form-container > input:focus,
+.form-container > select:focus {
+    background-color: #f0f8ff;
+    box-shadow: inset 0px 3px 6px rgba(0, 0, 0, 0.15);
+}
+
+/* Flexbox to display form containers side by side */
+.form {
     display: flex;
-  }
+    flex-wrap: wrap; /* Make responsive */
+    gap: 20px; /* Space between columns */
+}
 
-  .close-button {
-    transform: scale(.9);
-    text-align: right;
-    margin-left: 90%;
+.close-button {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    padding: 10px 15px;
     background-color: #e74c3c;
     border: none;
     border-radius: 8px;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.2s ease, transform 0.2s ease;
+}
 
-  }
+.close-button:hover {
+    background-color: #c0392b;
+    transform: scale(1.05);
+}
+
+/* Scroll behavior for long content */
+.popup-form {
+    overflow-y: auto;
+}
+
+@media (max-width: 768px) {
+    .popup-form {
+        width: 90%;
+        height: auto;
+    }
+    
+    .form {
+        flex-direction: column; /* Stack form containers on smaller screens */
+    }
+
+    #submit {
+        width: 100%; /* Full width button on small screens */
+    }
+}
