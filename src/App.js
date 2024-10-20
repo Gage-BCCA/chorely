@@ -1,6 +1,5 @@
 import "./App.css";
 import SideBar from "./components/sideBar/SideBar";
-import Popup from "./components/popup/Popup";
 import ContentContainer from "./components/contentContainer/ContentContainer";
 import CreationForm from "./components/creationForm/CreationForm";
 import DeletionForm from "./components/deletionForm/DeletionForm";
