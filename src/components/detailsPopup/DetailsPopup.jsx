@@ -17,7 +17,12 @@ export default function DetailsPopup ({ chore, handlePopup }) {
         })
         .then((response) => {
             console.log('Update Status: ', response.status)})
+        .then(() => {
+            handlePopup("close");
+        })
         .catch(err => console.log('rejected: ', err.message))
+
+        
     }
 
     return (
