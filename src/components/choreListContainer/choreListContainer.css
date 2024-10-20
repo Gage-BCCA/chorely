@@ -30,7 +30,7 @@
 
 .chore-items {
   align-self: stretch;
-  width: stretch;
+  width: 33%;
   height: fit-content;
   overflow-wrap: break-word;
   /* background-color: rgb(198, 245, 229); (Viewing size of items) */

@@ -52,35 +52,44 @@ const ChoreListContainer = ({ chores, handlePopup }) => {
       <input 
       type="checkbox" 
       name="showCompleted"
-      onChange={(e) => setShowCompleted(e.target.value)}
+      onChange={(e) => handleShowCompleted(e)}
 
       ></input>
 
       <div className="chore-list-container">
-      {chores.length > 0 ? ( showCompleted ?
-        (chores.filter(chore => chore.data_json[searchTopic].toLowerCase().includes(searchTerm))
-        .map((chore) => {
-            chore["data_json"]["id"] = chore["id"];
-            return (
-            <div className={'chore-items'} key={chore['id']}>
-              <Chores chore={chore["data_json"]} handlePopup={handlePopup} />
-            </div>
-          )}
-        )) : (
-              <p>No chores provided</p>
-          )) : 
+      {chores.length > 0 
+      ? 
         
-          (chores.filter(chore => chore.data_json[searchTopic].toLowerCase().includes(searchTerm))
-          .filter((chore) => !chore.data_json.completed)
-          .map((chore) => {
-              chore["data_json"]["id"] = chore["id"];
-              return (
-              <div className={'chore-items'} key={chore['id']}>
-                <Chores chore={chore["data_json"]} handlePopup={handlePopup} />
-              </div>
-            )}
-          ))
-          }
+      // I have 0 idea why this is checkbox condition is reversed  
+      ( !showCompleted 
+        ?
+            (chores.filter(chore => chore.data_json[searchTopic].toLowerCase().includes(searchTerm))
+            .map((chore) => {
+                chore["data_json"]["id"] = chore["id"];
+                return (
+                <div className={'chore-items'} key={chore['id']}>
+                  <Chores chore={chore["data_json"]} handlePopup={handlePopup} />
+                </div>
+              )}
+            )) 
+          : 
+            
+              (chores.filter(chore => chore.data_json[searchTopic].toLowerCase().includes(searchTerm))
+              .filter((chore) => !chore.data_json.completed)
+              .map((chore) => {
+                  chore["data_json"]["id"] = chore["id"];
+                  return (
+                  <div className={'chore-items'} key={chore['id']}>
+                    <Chores chore={chore["data_json"]} handlePopup={handlePopup} />
+                  </div>
+                )}
+              ))
+            )
+            : 
+            (
+                  <p>No chores provided</p>
+            )  
+        }
       </div>
     </div>
   );
