@@ -55,6 +55,7 @@ function App() {
         break;
       case 'confirm':
         setPopup(5);
+        setCurrentChore(data);
         break;
     }
   }
