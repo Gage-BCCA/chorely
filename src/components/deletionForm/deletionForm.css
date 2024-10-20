@@ -1,11 +1,4 @@
-
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
-  
-  /* Style for the popup form container */
+/* Style for the popup form container */
   .popupp-form {
     background-color: red; /* Red background */
     border: 2px solid #ccc;

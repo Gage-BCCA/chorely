@@ -4,9 +4,10 @@ import React, { useState } from "react";
 export default function CreationForm({ handlePopup, createNewChore }) {
 
   function handleSubmit(e){
+    
     e.preventDefault();
     let body = {
-      "owner": e.target.name.value,
+      "owner": e.target.owner.value,
       "chore": e.target.chore.value,
       "description": e.target.description.value,
       "due_date": e.target.dueDate.value,
@@ -14,12 +15,12 @@ export default function CreationForm({ handlePopup, createNewChore }) {
       "status": e.target.status.value,
       "paid": parseInt(e.target.paid.value) ? true : false,
       "allowance_amount": e.target.paid.value,
-      "important": e.target.importance.value,
+      "importance": e.target.importance.value,
       "date_posted": new Date(),
       "category": e.target.category.value,
       "comments": []
     }
-
+    console.log(body);
     createNewChore(body);
     handlePopup("close");
 
@@ -47,12 +48,12 @@ export default function CreationForm({ handlePopup, createNewChore }) {
               
             </div>
             <div className="form-container">
-            <label for="due-date">Due Date</label>
+            <label for="dueDate">Due Date</label>
               <input type="date" name="dueDate" />
               <label for="paid">Amount Paid</label>
               <input type="number" name="paid" />
               <label for ='importance'>Importance: </label>
-                        <select>
+                        <select name="importance">
                             <option value='Not Started'>Low</option>
                             <option value='In Progress'>Medium</option>
                             <option value='Completed'>High</option>

@@ -5,7 +5,7 @@
     padding: 35px;
     margin: 25px 50px;
     /* flex: 1 1 25%; */
-    box-shadow: 5px 5px #fff740, 10px 10px 10px #000000;
+    box-shadow: 5px 5px #fff740, 10px 10px 10px #ddd;
     transition-duration: 150ms;
     height: 250px;
     width: 250px;
