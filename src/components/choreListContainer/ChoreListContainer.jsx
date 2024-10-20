@@ -11,7 +11,7 @@ const ChoreListContainer = ({ chores, handlePopup }) => {
 
   const [showCompleted, setShowCompleted] = useState(true);
 
-  const [filter, setFilter] = useState("");
+  const [sort, setSort] = useState("owner");
 
   function searchChores(text) {
     setSearchTerm(text.toLowerCase());
@@ -29,6 +29,12 @@ const ChoreListContainer = ({ chores, handlePopup }) => {
       setShowCompleted(false);
     }
     console.log(showCompleted);
+  }
+
+  function handleSort(e){
+    console.log(sort);
+    setSort(e.target.value);
+    console.log(sort);
   }
 
   return (
@@ -59,15 +65,21 @@ const ChoreListContainer = ({ chores, handlePopup }) => {
           ></input>
         </div>
         <div className="filteringChild">
+
+
           <label for="sort">Sort</label>
-          <select name="sort">
-            <option>Due Date</option>
-            <option>Date Posted</option>
-            <option>Alphabetical (A-Z)</option>
-            <option>Alphabetical (Z-A)</option>
-            <option>Amount Paid</option>
-            <option>Owner Name</option>
+          <select 
+          name="sort"
+          onChange={(e) => handleSort(e)}
+          value={sort}
+          >
+            <option value="due_date" selected>Due Date</option>
+            <option value="date_posted">Date Posted</option>
+            <option value="chore">Alphabetical</option>
+            <option value="allowance_amount">Amount Paid</option>
+            <option value="owner">Owner Name</option>
           </select>
+          <p>{sort}</p>
         </div>
       </div>
       <div className="chore-list-container">
@@ -80,7 +92,17 @@ const ChoreListContainer = ({ chores, handlePopup }) => {
           (!showCompleted
             ?
             (chores.filter(chore => chore.data_json[searchTopic].toLowerCase().includes(searchTerm))
-              .map((chore) => {
+            .sort((a, b) => {
+              if (a.data_json[sort] > b.data_json[sort]){
+                return 1;
+              }
+              if (a[sort] < b[sort]){
+                return -1;
+              }
+
+              return 0;
+            })  
+            .map((chore) => {
                 chore["data_json"]["id"] = chore["id"];
                 return (
                   <div className={'chore-items'} key={chore['id']}>
@@ -93,6 +115,16 @@ const ChoreListContainer = ({ chores, handlePopup }) => {
 
             (chores.filter(chore => chore.data_json[searchTopic].toLowerCase().includes(searchTerm))
               .filter((chore) => !chore.data_json.completed)
+              .sort((a, b) => {
+                if (a.data_json[sort] > b.data_json[sort]){
+                  return 1;
+                }
+                if (a.data_json[sort] < b.data_json[sort]){
+                  return -1;
+                }
+  
+                return 0;
+              })  
               .map((chore) => {
                 chore["data_json"]["id"] = chore["id"];
                 return (
