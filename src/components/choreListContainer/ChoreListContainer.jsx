@@ -13,17 +13,17 @@ const ChoreListContainer = ({ chores, handlePopup }) => {
 
   const [filter, setFilter] = useState("");
 
-  function searchChores (text) {
+  function searchChores(text) {
     setSearchTerm(text.toLowerCase());
   }
 
-  function handleSearchTopic(e){
+  function handleSearchTopic(e) {
     console.log(e.target.value);
     setSearchTopic(e.target.value);
   }
 
-  function handleShowCompleted(e){
-    if (!showCompleted){
+  function handleShowCompleted(e) {
+    if (!showCompleted) {
       setShowCompleted(true);
     } else {
       setShowCompleted(false);
@@ -33,62 +33,80 @@ const ChoreListContainer = ({ chores, handlePopup }) => {
 
   return (
     <div>
-      <select
-      onChange={(e) => handleSearchTopic(e)}
-      >
-        <option value="owner" >Owner</option>
-        <option value="chore" selected>Chore</option>
-        <option value="category">Category</option>
-        <option value="description">Description</option>
-      </select>
+      <div className="filtering">
+        <div className="filteringChild">
+          <select
+            onChange={(e) => handleSearchTopic(e)}
+          >
+            <option value="owner" >Owner</option>
+            <option value="chore" selected>Chore</option>
+            <option value="category">Category</option>
+            <option value="description">Description</option>
+          </select>
+          <input
+            type='text'
+            placeholder='Search'
+            onInput={(e) => searchChores(e.target.value)}
+          ></input>
+        </div>
 
-      <input 
-      type='text' 
-      placeholder='Search'
-      onInput={ (e) => searchChores(e.target.value)}
-      ></input>
-
-      <label for="showCompleted">Show Completed</label>
-      <input 
-      type="checkbox" 
-      name="showCompleted"
-      onChange={(e) => handleShowCompleted(e)}
-
-      ></input>
-
+        <div className="filteringChild">
+          <label for="showCompleted">Show Completed</label>
+          <input
+            type="checkbox"
+            name="showCompleted"
+            onChange={(e) => handleShowCompleted(e)}
+          ></input>
+        </div>
+        <div className="filteringChild">
+          <label for="sort">Sort</label>
+          <select name="sort">
+            <option>Due Date</option>
+            <option>Date Posted</option>
+            <option>Alphabetical (A-Z)</option>
+            <option>Alphabetical (Z-A)</option>
+            <option>Amount Paid</option>
+            <option>Owner Name</option>
+          </select>
+        </div>
+      </div>
       <div className="chore-list-container">
-      {chores.length > 0 
-      ? 
-        
-      // I have 0 idea why this is checkbox condition is reversed  
-      ( !showCompleted 
-        ?
+
+
+        {chores.length > 0
+          ?
+          // This is code from satan himself  
+          // I have 0 idea why this is checkbox condition is reversed  
+          (!showCompleted
+            ?
             (chores.filter(chore => chore.data_json[searchTopic].toLowerCase().includes(searchTerm))
-            .map((chore) => {
+              .map((chore) => {
                 chore["data_json"]["id"] = chore["id"];
                 return (
-                <div className={'chore-items'} key={chore['id']}>
-                  <Chores chore={chore["data_json"]} handlePopup={handlePopup} />
-                </div>
-              )}
-            )) 
-          : 
-            
-              (chores.filter(chore => chore.data_json[searchTopic].toLowerCase().includes(searchTerm))
-              .filter((chore) => !chore.data_json.completed)
-              .map((chore) => {
-                  chore["data_json"]["id"] = chore["id"];
-                  return (
                   <div className={'chore-items'} key={chore['id']}>
                     <Chores chore={chore["data_json"]} handlePopup={handlePopup} />
                   </div>
-                )}
+                )
+              }
               ))
-            )
-            : 
-            (
-                  <p>No chores provided</p>
-            )  
+            :
+
+            (chores.filter(chore => chore.data_json[searchTopic].toLowerCase().includes(searchTerm))
+              .filter((chore) => !chore.data_json.completed)
+              .map((chore) => {
+                chore["data_json"]["id"] = chore["id"];
+                return (
+                  <div className={'chore-items'} key={chore['id']}>
+                    <Chores chore={chore["data_json"]} handlePopup={handlePopup} />
+                  </div>
+                )
+              }
+              ))
+          )
+          :
+          (
+            <p>No chores provided</p>
+          )
         }
       </div>
     </div>

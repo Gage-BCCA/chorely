@@ -35,3 +35,12 @@
   overflow-wrap: break-word;
   /* background-color: rgb(198, 245, 229); (Viewing size of items) */
 }
+
+.filtering {
+  display: flex;
+}
+
+.filtering > *{
+  flex: 1 1 100%;
+  padding: 25px;
+}
