@@ -93,10 +93,10 @@ const ChoreListContainer = ({ chores, handlePopup }) => {
             (chores.filter(chore => chore.data_json[searchTopic].toLowerCase().includes(searchTerm))
             .sort((a, b) => {
               if (a.data_json[sort] > b.data_json[sort]){
-                return 1;
-              }
-              if (a[sort] < b[sort]){
                 return -1;
+              }
+              if (a.data_json[sort] < b.data_json[sort]){
+                return 1;
               }
 
               return 0;
@@ -116,10 +116,10 @@ const ChoreListContainer = ({ chores, handlePopup }) => {
               .filter((chore) => !chore.data_json.completed)
               .sort((a, b) => {
                 if (a.data_json[sort] > b.data_json[sort]){
-                  return 1;
+                  return -1;
                 }
                 if (a.data_json[sort] < b.data_json[sort]){
-                  return -1;
+                  return 1;
                 }
   
                 return 0;
