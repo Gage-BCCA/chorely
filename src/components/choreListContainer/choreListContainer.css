@@ -21,15 +21,12 @@
 
 
 .chore-list-container {
-  display: grid;
-  width: fit-content;
-  grid-template-columns: repeat(3, minmax(auto, 1fr)); 
-  gap: 10px; 
+  display: flex;
+  flex-wrap: wrap; 
   justify-items: center;
 }
 
 .chore-items {
-  align-self: stretch;
   width: 33%;
   height: fit-content;
   overflow-wrap: break-word;
