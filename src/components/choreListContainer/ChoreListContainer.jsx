@@ -79,7 +79,6 @@ const ChoreListContainer = ({ chores, handlePopup }) => {
             <option value="allowance_amount">Amount Paid</option>
             <option value="owner">Owner Name</option>
           </select>
-          <p>{sort}</p>
         </div>
       </div>
       <div className="chore-list-container">
