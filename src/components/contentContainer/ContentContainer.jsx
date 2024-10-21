@@ -19,7 +19,9 @@ import TotalChoresIncomplete from '../totalChoresIncomplete/totalChoresIncomplet
 export default function ContentContainer({ chores, handlePopup }) {
     return(
         <>
-        <h1>Chores</h1>
+        <div className='app-header'>
+            <h1>Chores</h1>
+        </div>
         <ChoreListContainer chores={ chores } handlePopup={handlePopup} />
         </>
     )

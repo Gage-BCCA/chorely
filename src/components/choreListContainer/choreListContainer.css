@@ -42,6 +42,14 @@
   padding: 25px;
 }
 
+.filteringChild input {
+  margin-left: 10px; 
+}
+
+.filteringChild label {
+  padding-right: 10px;
+}
+
 .no-chores-message {
   width: 100vw;
   height: 100vw;
