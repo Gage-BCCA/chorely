@@ -6,6 +6,9 @@ import DeletionForm from "./components/deletionForm/DeletionForm";
 import DetailsPopup from "./components/detailsPopup/DetailsPopup";
 import ChoreEditForm from "./components/choreEditForm/ChoreEditForm";
 import ConfirmPopup from './components/confirmPopup/ConfirmPopup';
+//import TotalChores from '../components/totalChores/totalChores';
+//import TotalChoresCompleted from '../components/totalChoresCompleted/totalChoresCompleted';
+//import TotalChoresIncomplete from '../components/totalChoresIncomplete/totalChoresIncomplete
 import { useState, useEffect } from "react";
 
 
