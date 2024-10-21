@@ -1,3 +1,3 @@
 import './totalChores.css'
-import ContentContainer from '../contentContainer/ContentContainer'
+// import ContentContainer from '../contentContainer/ContentContainer'
 
