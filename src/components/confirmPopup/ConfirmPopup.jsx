@@ -1,8 +1,8 @@
 import './confirmPopup.css';
 
-export default function ConfirmPopup({ chore }) {
+export default function ConfirmPopup({ chore, handlePopup }) {
     console.log('its me the confirm popup');
-    console.log(chore.chore, chore.status);
+    console.log(chore.chore, chore.completed);
 
     const markComplete = async (event) => {
         event.preventDefault();
@@ -66,12 +66,13 @@ export default function ConfirmPopup({ chore }) {
     return(
         <div className='popup'>
              <h1>Confirm Status Update</h1>
-             <h2>{chore.chore} : {chore.status}</h2>
+             <h2>{chore.chore} : {chore.completed ? 'complete' : 'incomplete'}</h2>
                 <div className='confirmation-btns'>
                     <button onClick={markComplete}>Mark Complete</button>
                     <br></br>
                     <button onClick={markIncomplete}>Mark Incomplete</button>
                 </div>
+            <button onClick={ () => handlePopup('close')}>Cancel</button>
         </div>
     )
 }
