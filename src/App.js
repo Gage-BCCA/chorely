@@ -2,7 +2,6 @@ import "./App.css";
 import SideBar from "./components/sideBar/SideBar";
 import ContentContainer from "./components/contentContainer/ContentContainer";
 import CreationForm from "./components/creationForm/CreationForm";
-import DeletionForm from "./components/deletionForm/DeletionForm";
 import DetailsPopup from "./components/detailsPopup/DetailsPopup";
 import ChoreEditForm from "./components/choreEditForm/ChoreEditForm";
 import ConfirmPopup from './components/confirmPopup/ConfirmPopup';
@@ -42,9 +41,6 @@ function App() {
       case 'creation':
         setPopup(1);
         break;
-      case 'deletion':
-        setPopup(2);
-        break;
       case 'details':
         setPopup(3);
         setCurrentChore(data)
@@ -65,8 +61,6 @@ function App() {
     switch (type){
       case 1:
         return <CreationForm handlePopup={handlePopup} createNewChore={createNewChore} />
-      case 2:
-        return <DeletionForm handlePopup={handlePopup}/>
       case 3:
         return <DetailsPopup chore={currentChore} handlePopup={handlePopup} />
       case 4:

@@ -1,4 +1,4 @@
-import './choreEditForm.css';
+import './choreEditForm.css'
 
 export default function ChoreEditForm({ chore, handlePopup }) {
     console.log('loaded');
@@ -32,6 +32,8 @@ export default function ChoreEditForm({ chore, handlePopup }) {
             body: JSON.stringify(updatedChoreInfo)})
         .then((response) => {
             console.log('Update Status: ', response.status)})
+        .then(() => {
+                handlePopup("close")})
         .catch(err => console.log('rejected: ', err.message))
     }
     

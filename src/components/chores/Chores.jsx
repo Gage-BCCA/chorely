@@ -7,16 +7,23 @@ const Chores = ({ chore, handlePopup }) => {
     <div className={ (chore.chore.length > 40) ? 'chores chores-small-title' : 'chores' }>
 
       <h2>{chore.chore}</h2>
-      <p>{chore.owner}</p>
-      <button onClick={ () => {
-        handlePopup("details", chore)
-        console.log(chore)}}>See More</button>
+      <h3>{chore.owner}</h3>
+      <div className='chore-details'>
+        <p>Due: {chore.due_date}</p>
+        <p>Importance: {chore.importance}</p>
+        <p>Allowance: ${chore.allowance_amount}</p>
+      </div>
+      <div className='btns'>
+        <button onClick={ () => {
+          handlePopup("details", chore)
+          console.log(chore)}}>&#9432;</button>
 
-      <button onClick={ () => handlePopup('confirm', chore)}
-        id="mark-complete"><img src="./images/greencheck.png" alt=""/></button>
+        <button onClick={ () => 
+          handlePopup('confirm', chore)}
+          id="mark-complete">&#x2705;</button>
+      </div>
+      
 
-      <button onClick={ () => handlePopup('confirm', chore)}
-        id="mark-incomplete">&#10060;</button>
     </div>
   );
 };

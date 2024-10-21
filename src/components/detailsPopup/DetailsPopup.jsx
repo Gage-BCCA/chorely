@@ -36,17 +36,6 @@ export default function DetailsPopup ({ chore, handlePopup }) {
                         {chore.description}<br></br>
                         Allowance Amount: ${chore.allowance_amount}<br></br>
                         Paid: {chore.paid ? 'Yes' : 'No'}</p> 
-                <div className='chore-comments'>
-                    <h4>Comments:</h4>
-                        {chore.comments && chore.comments.length > 0 ? (
-                            chore.comments.map((comment, id) => (
-                                <div key={id}>
-                                    <p>{comment.author} | {comment.date_posted}<br></br>
-                                        {comment.text}
-                                    </p>
-                                </div>
-                                ))) : ( <p>No comments available</p> )}
-                </div>
                 <div className='chore-categories'>
                     <h4>Categories:</h4>
                         <p>{chore.category}</p>

@@ -7,12 +7,12 @@ to the SideBar component.
 
 import './contentContainer.css'
 import ChoreListContainer from '../choreListContainer/ChoreListContainer'
-/* 
+
 import TotalChores from '../totalChores/totalChores'
 import TotalChoresCompleted from '../totalChoresCompleted/totalChoresCompleted'
 import TotalChoresIncomplete from '../totalChoresIncomplete/totalChoresIncomplete'
 
-*/
+
 
 
 

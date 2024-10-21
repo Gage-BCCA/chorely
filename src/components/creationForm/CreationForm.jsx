@@ -12,7 +12,7 @@ export default function CreationForm({ handlePopup, createNewChore }) {
       "description": e.target.description.value,
       "due_date": e.target.dueDate.value,
       "completed": false,
-      "status": e.target.status.value,
+      "status": "incomplete",
       "paid": parseInt(e.target.paid.value) ? true : false,
       "allowance_amount": e.target.paid.value,
       "importance": e.target.importance.value,
@@ -54,9 +54,9 @@ export default function CreationForm({ handlePopup, createNewChore }) {
               <input type="number" name="paid" />
               <label for ='importance'>Importance: </label>
                         <select name="importance">
-                            <option value='Not Started'>Low</option>
-                            <option value='In Progress'>Medium</option>
-                            <option value='Completed'>High</option>
+                            <option value='Low'>Low</option>
+                            <option value='Medium'>Medium</option>
+                            <option value='High'>High</option>
                         </select>
                   
                             
@@ -67,13 +67,7 @@ export default function CreationForm({ handlePopup, createNewChore }) {
                 <option value="outdoor">Outdoor</option>
                 <option value="indoor">Indoor</option>
               </select>
-              <label for="status">Chore Status</label>
-              <select name="status">
-                <option value="Yes">Completed</option>
-                <option value="Yes">In progress</option>
-                <option value="Yes">Incomplete</option>
-              </select>
-            </div>
+             </div>
             </div>
             <button type="submit" id="submit">Submit</button>
           </form>
