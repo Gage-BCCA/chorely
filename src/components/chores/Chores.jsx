@@ -14,13 +14,15 @@ const Chores = ({ chore, handlePopup }) => {
         <p>Allowance: ${chore.allowance_amount}</p>
       </div>
       <div className='btns'>
-        <button onClick={ () => {
+        <button className='sub-button' 
+        onClick={() => {
           handlePopup("details", chore)
           console.log(chore)}}>&#9432;</button>
 
-        <button onClick={ () => 
+        <button className='sub-button' 
+        onClick={ () => 
           handlePopup('confirm', chore)}
-          id="mark-complete">&#x2705;</button>
+          id="mark-complete"><img src="./images/greencheck.png" alt=""/></button>
       </div>
       
 

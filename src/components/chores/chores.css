@@ -70,11 +70,37 @@
     margin-bottom: 1px;
 }
 
+
 .btns {
     display: flex;
     justify-content: space-evenly; 
-    align-items: flex-end; 
-    margin-top: 20px; 
-    scale: 1.25;
+    align-items: center; 
+    position: absolute; 
+    bottom: 20px; 
+    left: 0;
+    right: 0;
+    margin: auto; 
+    width: 90%; 
+
 }
 
+
+.sub-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 37px;
+    height: 37px;
+    border-radius: 50%;
+    border: none;
+    padding: 0;
+    
+
+}
+
+#mark-complete img {
+    width: auto;
+    height: auto;
+    transform: scale(.2);
+    transform-origin: center;
+}
