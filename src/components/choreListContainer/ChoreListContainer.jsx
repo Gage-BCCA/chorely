@@ -136,7 +136,7 @@ const ChoreListContainer = ({ chores, handlePopup }) => {
           )
           :
           (
-            <p>No chores provided</p>
+            <p className="no-chores-message">No chores provided</p>
           )
         }
       </div>

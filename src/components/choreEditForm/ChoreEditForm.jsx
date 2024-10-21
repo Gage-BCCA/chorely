@@ -10,7 +10,7 @@ export default function ChoreEditForm({ chore, handlePopup }) {
         const updatedChoreInfo = {
             "chore": event.target.chore.value,
             "owner": event.target.owner.value,
-            "date_posted": event.target.date.value,
+            "date_posted": chore.date_posted,
             "importance": event.target.importance.value,
             "due_date": event.target.dueDate.value,
             "status": event.target.status.value,
@@ -19,10 +19,7 @@ export default function ChoreEditForm({ chore, handlePopup }) {
             "description": event.target.description.value,
             "allowance_amount": event.target.allowance.value,
             "paid": parseInt(event.target.allowance.value) ? true : false,
-            "comments": []
         }
-
-        console.log(updatedChoreInfo)
 
         fetch(`https://unit-4-project-app-24d5eea30b23.herokuapp.com/update/data?teamId=2&recordId=${chore.id}`, {
             method: 'POST',
@@ -41,8 +38,8 @@ export default function ChoreEditForm({ chore, handlePopup }) {
         <div className='edit-popup'>
           <button 
             className='close-btn' 
-            onClick={() => handlePopup('close')}
-          >Close</button>
+            onClick={() => handlePopup('close')}>Close
+            </button>
           <h1 className='edit-details-header'>Editing: {chore.chore}</h1>
           <form className='form-container' onSubmit={handleUpdate}>
             <label htmlFor="chore">Chore Name</label>
@@ -67,8 +64,7 @@ export default function ChoreEditForm({ chore, handlePopup }) {
             
             <label htmlFor="status">Status:</label>
             <select defaultValue={chore.status} name="status">
-            <option value='Not Started'>Not Started</option>
-            <option value='In Progress'>In Progress</option>
+            <option value='Incomplete'>Incomplete</option>
             <option value='Completed'>Completed</option>
             </select>
 

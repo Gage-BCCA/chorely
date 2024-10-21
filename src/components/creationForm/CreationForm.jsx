@@ -20,7 +20,6 @@ export default function CreationForm({ handlePopup, createNewChore }) {
       "importance": e.target.importance.value,
       "date_posted": datePosted,
       "category": e.target.category.value,
-      "comments": []
     }
 
     console.log(body);
@@ -70,6 +69,7 @@ export default function CreationForm({ handlePopup, createNewChore }) {
                 <option disabled selected value> -- select an option -- </option>
                 <option value="outdoor">Outdoor</option>
                 <option value="indoor">Indoor</option>
+                <option value="other">Other</option>
               </select>
             </div>
             <button type="submit" id="submit">Submit</button>

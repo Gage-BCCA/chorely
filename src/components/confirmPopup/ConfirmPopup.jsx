@@ -34,13 +34,14 @@ export default function ConfirmPopup({ chore, handlePopup }) {
     }
 
     return(
-        <div className='popup'>
+        <div className='confirm-popup'>
+            <button className='close-btn'
+                onClick={ () => handlePopup('close')}>Close</button>
              <h1>Confirm Status Update</h1>
-             <h2>{chore.chore} : {chore.completed ? 'complete' : 'incomplete'}</h2>
-                <div className='confirmation-btns'>
-                    <button onClick={markComplete}>Mark Complete</button>
-                </div>
-            <button onClick={ () => handlePopup('close')}>Cancel</button>
+             <h2>{chore.chore}</h2>
+             <h2>Current Status: {chore.completed ? 'complete' : 'incomplete'}</h2>
+            <button className='complete-btn' 
+                onClick={markComplete}>Mark Complete</button>
         </div>
     )
 }
