@@ -37,7 +37,7 @@ export default function DetailsPopup ({ chore, handlePopup }) {
                         Allowance Amount: ${chore.allowance_amount}<br></br>
                         Paid: {chore.paid ? 'Yes' : 'No'}</p> 
                 <div className='chore-categories'>
-                    <h4>Categories:</h4>
+                    <h4>Category:</h4>
                         <p>{chore.category}</p>
                 </div>
                 <div className='details-btns'>

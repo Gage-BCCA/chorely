@@ -51,10 +51,6 @@ export default function ChoreEditForm({ chore, handlePopup }) {
                         <input type="text" defaultValue={chore.owner} name="owner" />
                     </label>
                     <label>
-                        <span>Date Posted:</span>
-                        <input type="date" defaultValue={chore.date_posted} name="date" />
-                    </label>
-                    <label>
                         <span>Importance:</span>
                         <select defaultValue={chore.status} name="importance">
                             <option value='Not Started'>Low</option>

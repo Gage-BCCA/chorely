@@ -1,18 +1,4 @@
 .popup {
-    position: absolute;
-    background-color: #f0f0f0; /* Softer background for the popup container */
-    height: 80vh;
-    width: 50vw;
-    top: 10%;
-    left: 25%;
-    padding: 20px;
-    border-radius: 12px;
-    box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.3);
-    z-index: 999;
-    transition: transform 0.3s ease, opacity 0.3s ease;
-}
-
-.popup-form {
     position: fixed;
     top: 50%;
     left: 50%;
@@ -30,9 +16,9 @@
 }
 
 /* Add smooth scrolling to the form */
-.popup-form > form {
+/* .popup > form {
     margin: auto;
-}
+} */
 
 #submit {
     width: 30%;
@@ -87,7 +73,7 @@
 }
 
 /* Flexbox to display form containers side by side */
-.form {
+.form-container {
     display: flex;
     flex-wrap: wrap; /* Make responsive */
     gap: 20px; /* Space between columns */
@@ -113,17 +99,17 @@
 }
 
 /* Scroll behavior for long content */
-.popup-form {
+.popup {
     overflow-y: auto;
 }
 
 @media (max-width: 768px) {
-    .popup-form {
+    .popup {
         width: 90%;
         height: auto;
     }
     
-    .form {
+    .form-container {
         flex-direction: column; /* Stack form containers on smaller screens */
     }
 
