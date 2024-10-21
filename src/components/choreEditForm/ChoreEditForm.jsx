@@ -38,59 +38,45 @@ export default function ChoreEditForm({ chore, handlePopup }) {
     }
     
     return (
-        <div className='popup'>
-            <div className='edit-chore-details'>
-                <h1 className='edit-details-header'>Editing: {chore.chore}</h1>
-                <form onSubmit={handleUpdate}>
-                    <label>
-                        <span>Chore name:</span>
-                        <input type="text" defaultValue={chore.chore} name="chore" />
-                    </label>
-                    <label>
-                        <span>Owner:</span>
-                        <input type="text" defaultValue={chore.owner} name="owner" />
-                    </label>
-                    <label>
-                        <span>Importance:</span>
-                        <select defaultValue={chore.status} name="importance">
-                            <option value='Not Started'>Low</option>
-                            <option value='In Progress'>Medium</option>
-                            <option value='Completed'>High</option>
-                        </select>
-                    </label>
-                    <label>
-                        <span>Due Date:</span>
-                        <input type="date" defaultValue={chore.due_date} name="dueDate"/>
-                    </label>
-                    <label>
-                        <span>Status:</span>
-                        <select defaultValue={chore.status} name="status">
-                            <option value='Not Started'>Not Started</option>
-                            <option value='In Progress'>In Progress</option>
-                            <option value='Completed'>Completed</option>
-                        </select>
-                    </label>
-                    <label>
-                        <span>Description:</span>
-                        <input type="text" defaultValue={chore.description} name="description" />
-                    </label>
-                    <label>
-                        <span>Allowance Amount:</span>
-                        <input type="text" defaultValue={chore.allowance_amount} name="allowance" />
-                    </label>
-                    <label>
-                        <span>Paid:</span>
-                        <select defaultValue={chore.paid ? 'Yes' : 'No'}>
-                            <option value='No'>No</option>
-                            <option value='Yes'>Yes</option>
-                        </select>
-                    </label>
-                    <div className='update-btns'>
-                    <button type='submit'>Submit Changes</button>
-                    <button onClick={ () => handlePopup('close')}>Cancel</button>
-                </div>
-                </form>
-            </div>
+        <div className='edit-popup'>
+          <button 
+            className='close-btn' 
+            onClick={() => handlePopup('close')}
+          >Close</button>
+          <h1 className='edit-details-header'>Editing: {chore.chore}</h1>
+          <form className='form-container' onSubmit={handleUpdate}>
+            <label htmlFor="chore">Chore Name</label>
+            <input type="text" defaultValue={chore.chore} name="chore" />
+            
+            <label htmlFor="owner">Owner</label>
+            <input type="text" defaultValue={chore.owner} name="owner" />
+            
+            <label htmlFor="description">Description</label>
+            <input type="text" defaultValue={chore.description} name="description" />
+            
+           
+            <label htmlFor="dueDate">Due Date</label>
+            <input type="date" defaultValue={chore.due_date} name="dueDate" />
+            
+            <label htmlFor="importance">Importance:</label>
+            <select defaultValue={chore.importance} name="importance">
+            <option value='Low'>Low</option>
+            <option value='Medium'>Medium</option>
+            <option value='High'>High</option>
+            </select>
+            
+            <label htmlFor="status">Status:</label>
+            <select defaultValue={chore.status} name="status">
+            <option value='Not Started'>Not Started</option>
+            <option value='In Progress'>In Progress</option>
+            <option value='Completed'>Completed</option>
+            </select>
+
+            <label htmlFor="allowance">Allowance Amount:</label>
+            <input type="number" defaultValue={chore.allowance_amount} name="allowance" />
+            
+            <button className='submit-btn' type='submit'>Submit Changes</button>
+          </form>
         </div>
     )
 };

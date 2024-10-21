@@ -1,5 +1,8 @@
-.popup {
+.details-popup {
     position: fixed;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     top: 50%;
     left: 50%;
     width: 60%;
@@ -7,35 +10,74 @@
     overflow-y: auto;
     transform: translate(-50%, -50%);
     background-color: #3498DB;
-    padding: 40px;
+    padding: 40px; 
     box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.3);
     border-radius: 12px;
     z-index: 1000;
     transition: transform 0.3s ease, opacity 0.3s ease;
-    opacity: 1; 
+    opacity: 1;
 }
 
-.chore-details {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+.close-btn {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    padding: 10px 15px;
+    background-color: #e74c3c;
+    border: none;
+    border-radius: 8px;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.2s ease, transform 0.2s ease;
 }
 
-.popup h4 {
-    margin-top: 10px;
-    margin-bottom: 0;
+.close-btn:hover {
+    background-color: #c0392b;
+    transform: scale(1.05);
 }
 
 .details-header {
-    margin: 0;
+    margin: 10px 0;
 }
 
-.chore-details p {
-    margin-top: 0px;
+.chore-details h4 {
+    margin-bottom: 0px;
 }
 
-.chore-details button {
-    width: 100%;
-    margin: 5px;
-    padding: 2px;
+.details-btns {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column; 
+    align-items: center;
+    
+}
+
+.details-btns button {
+    width: 30%;
+    background-color: #ecf0f1;
+    border-radius: 8px;
+    text-align: center;
+    border: none;
+    padding: 15px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+.details-btns button:hover {
+    transform: scale(1.05);
+    background-color: #bdc3c7; /* Hover color */
+}
+
+/* Media query for smaller screens */
+@media (max-width: 768px) {
+    .popup {
+        width: 90%;
+        height: auto;
+    }
+    
+    .details-btns button {
+        width: 100%; /* Full width buttons on small screens */
+    }
 }

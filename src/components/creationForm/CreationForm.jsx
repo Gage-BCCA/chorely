@@ -32,7 +32,7 @@ export default function CreationForm({ handlePopup, createNewChore }) {
     <div>
       {/* Conditionally render the form */}
       {useState && (
-        <div className="popup">
+        <div className="creation-popup">
           <button 
           className="close-button"
           onClick={() => handlePopup("close")}
