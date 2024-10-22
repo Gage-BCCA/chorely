@@ -1,0 +1,26 @@
+{
+  "chore": "Hit the Quan",
+  "description": "Quan vs Raygun",
+  "owner": "Raygun",
+  "due_date": "10/14/2024",
+  "completed": true,
+  "status": "Lost horribly",
+  "image": "path to image",
+  "paid": false,
+  "allowance_amount": 0,
+  "importance": 3,
+  "date_posted": "10/10/2021",
+  "categories": ["dancing", "breakdancing"],
+  "comments": [
+    {
+      "author": "Daniel",
+      "date_posted": "10/12/2024",
+      "text": "An absolute masterclass on breakdancing by Mr. Buford."
+    },
+    {
+      "author": "Gage",
+      "date_posted": "10/12/2024",
+      "text": "Wow!"
+    }
+  ]
+}
