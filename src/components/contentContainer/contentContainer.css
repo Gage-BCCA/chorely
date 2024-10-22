@@ -1,0 +1,12 @@
+@import url("https://fonts.googleapis.com/css2?family=Inspiration&display=swap");
+
+.app-header {
+    color: #3498DB;
+    font-family: "Inspiration", cursive;
+    font-weight: 400;
+    font-style: normal;
+    text-shadow: 1px 1px 1px black;
+    letter-spacing: 3px;
+    font-size: 1.5rem;
+    transform: scale(2);
+}

@@ -41,3 +41,19 @@
   flex: 1 1 100%;
   padding: 25px;
 }
+
+.filteringChild input {
+  margin-left: 10px; 
+}
+
+.filteringChild label {
+  padding-right: 10px;
+}
+
+.no-chores-message {
+  width: 100vw;
+  height: 100vw;
+  text-align: center;
+  text-decoration: underline;
+  text-decoration-style: double;
+}

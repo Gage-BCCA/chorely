@@ -4,7 +4,9 @@ import "./chores.css";
 const Chores = ({ chore, handlePopup }) => {
 
   return (
-    <div className={ (chore.chore.length > 40) ? 'chores chores-small-title' : 'chores' }>
+    // Removed check for character length because I made the overflow styling in choreListContainer
+    // This checks to see if chore is marked complete, if true then disable/grey in css
+    <div className={`chores ${chore.completed ? 'completed' : 'incomplete'}`}>
 
       <h2>{chore.chore}</h2>
       <h3>{chore.owner}</h3>

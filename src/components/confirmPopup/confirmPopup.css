@@ -1,10 +1,56 @@
-.popup {
+.confirm-popup {
     position: fixed;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     top: 50%;
     left: 50%;
-    width: 75%;
-    height: 85%;
-    background-color: #ddd;
-    height: 80vh;
-    width: 50vw;
+    width: 60%;
+    height: 50%;
+    overflow-y: auto;
+    transform: translate(-50%, -50%);
+    background-color: #3498DB;
+    padding: 40px;
+    box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.3);
+    border-radius: 12px;
+    z-index: 1000;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+    opacity: 1;
+}
+
+.close-button {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    padding: 10px 15px;
+    background-color: #e74c3c;
+    border: none;
+    border-radius: 8px;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.close-button:hover {
+    background-color: #c0392b;
+    transform: scale(1.05);
+}
+
+.complete-btn {
+    width: 45%;
+    background-color: #ecf0f1;
+    border-radius: 8px;
+    text-align: center;
+    margin: 20px auto;
+    border: none;
+    padding: 15px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+.complete-btn:hover {
+    transform: scale(1.05);
+    background-color: green;
 }

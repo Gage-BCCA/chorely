@@ -88,15 +88,17 @@ const ChoreListContainer = ({ chores, handlePopup }) => {
           ?
           // This is code from satan himself  
           // I have 0 idea why this is checkbox condition is reversed  
+          
+          // Bro. I'm not going to pretend to understand wtf you wrote here, but all I did was switch the values you had in the returns and it works. 
           (!showCompleted
             ?
             (chores.filter(chore => chore.data_json[searchTopic].toLowerCase().includes(searchTerm))
             .sort((a, b) => {
               if (a.data_json[sort] > b.data_json[sort]){
-                return -1;
+                return 1;
               }
               if (a.data_json[sort] < b.data_json[sort]){
-                return 1;
+                return -1;
               }
 
               return 0;
@@ -116,10 +118,10 @@ const ChoreListContainer = ({ chores, handlePopup }) => {
               .filter((chore) => !chore.data_json.completed)
               .sort((a, b) => {
                 if (a.data_json[sort] > b.data_json[sort]){
-                  return -1;
+                  return 1;
                 }
                 if (a.data_json[sort] < b.data_json[sort]){
-                  return 1;
+                  return -1;
                 }
   
                 return 0;
@@ -136,7 +138,7 @@ const ChoreListContainer = ({ chores, handlePopup }) => {
           )
           :
           (
-            <p>No chores provided</p>
+            <p className="no-chores-message">No chores provided</p>
           )
         }
       </div>
