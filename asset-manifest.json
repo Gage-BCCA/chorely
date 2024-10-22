@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/chorely/static/css/main.698d8e1d.css",
+    "main.css": "/chorely/static/css/main.b0f1b23e.css",
     "main.js": "/chorely/static/js/main.5837fa40.js",
     "index.html": "/chorely/index.html",
-    "main.698d8e1d.css.map": "/chorely/static/css/main.698d8e1d.css.map",
+    "main.b0f1b23e.css.map": "/chorely/static/css/main.b0f1b23e.css.map",
     "main.5837fa40.js.map": "/chorely/static/js/main.5837fa40.js.map"
   },
   "entrypoints": [
-    "static/css/main.698d8e1d.css",
+    "static/css/main.b0f1b23e.css",
     "static/js/main.5837fa40.js"
   ]
 }
