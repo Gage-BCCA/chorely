@@ -74,14 +74,9 @@
 .btns {
     display: flex;
     justify-content: space-evenly; 
-    align-items: center; 
-    position: absolute; 
-    bottom: 20px; 
-    left: 0;
-    right: 0;
-    margin: auto; 
-    width: 90%; 
-
+    align-items: flex-end; 
+    margin-top: 20px; 
+    scale: 1.25;
 }
 
 
@@ -94,7 +89,6 @@
     border-radius: 50%;
     border: none;
     padding: 0;
-    
 
 }
 
@@ -103,4 +97,9 @@
     height: auto;
     transform: scale(.2);
     transform-origin: center;
+}
+
+.chores.completed {
+    opacity: 0.5; 
+    pointer-events: none; 
 }
